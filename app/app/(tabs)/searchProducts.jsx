@@ -68,7 +68,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingLeft: 15,
     marginBottom: 20,
-    backgroundColor: 'white',
+    backgroundColor: '#BED754',
+    borderRadius:50,
   },
   scrollViewContent: {
   
@@ -79,8 +80,8 @@ const styles = StyleSheet.create({
      //affects the no products to display area only
   },
   noResultsText: {
-    fontSize: 16,
-    color: 'yellow',
+    fontSize: 30,
+    color: '#FF6500',
     //affects the no products to display area only
   },
 });

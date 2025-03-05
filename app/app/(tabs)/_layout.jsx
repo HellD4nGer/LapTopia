@@ -33,6 +33,11 @@ export default function TabLayout() {
         options={{
           title: 'Products',
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+          headerStyle: {
+            backgroundColor: '#191919',
+            borderBottomWidth: 0,
+          },
+          headerTintColor: '#FFF',
           headerRight: () => (
             <Link href="/cart" asChild>
             <Pressable>
@@ -40,7 +45,7 @@ export default function TabLayout() {
                 <FontAwesome
                   name="shopping-cart"
                   size={25}
-                  color={pressed ? '#000000' : '#000000'} // Set the color to black (#000000)
+                  color={pressed ? 'white' : 'white'} // Set the color to black (#000000)
                   style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
                 />
               )}
@@ -55,6 +60,11 @@ export default function TabLayout() {
       options={{
         title: 'Search',
         tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,
+        headerStyle: {
+          backgroundColor: '#191919',
+          borderBottomWidth: 0, // Set the background color for the header
+        },
+        headerTintColor: '#FFF',
       }}
     />
     <Tabs.Screen
@@ -62,6 +72,11 @@ export default function TabLayout() {
         options={{
           title: 'Profile',
           tabBarIcon: ({ color }) => <TabBarIcon name="user-circle" color={color} />,
+          headerStyle: {
+            backgroundColor: '#191919',
+            borderBottomWidth: 0,
+          },
+          headerTintColor: '#FFF',
         }}
       />
       <Tabs.Screen
@@ -69,6 +84,11 @@ export default function TabLayout() {
         options={{
           title: 'About',
           tabBarIcon: ({ color }) => <TabBarIcon name="info-circle" color={color} />,
+          headerStyle: {
+            backgroundColor: '#191919',
+            borderBottomWidth: 0,
+          },
+          headerTintColor: '#FFF',
         }}
       />
       

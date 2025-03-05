@@ -1,38 +1,61 @@
 import React from 'react';
 import { View, Text, Image, FlatList, StyleSheet } from 'react-native';
-import lemon from "../../assets/images/lemon.png";
-import mango from "../../assets/images/mango.png";
+import lab1 from "../../assets/images/lab1.png";
+import lab2 from "../../assets/images/lab2.png";
+import lab3 from "../../assets/images/lab3.png";
+import lab4 from "../../assets/images/lab4.png";
+import lab5 from "../../assets/images/lab5.png";
 
 const products = [
   {
     id: '1',
     name: 'Product 1',
     description: 'This is the description for Product 1.',
-    image: lemon,
+    logo: lab1,
   },
   {
     id: '2',
     name: 'Product 2',
     description: 'This is the description for Product 2.',
-    image: mango,
+    logo: lab2,
   },
   {
     id: '3',
     name: 'Product 3',
     description: 'This is the description for Product 3.',
-    image: mango,
+    logo: lab3,
+  },
+  {
     id: '4',
     name: 'Product 4',
-    description: 'This is the description for Product 3.',
-    image: mango,
+    description: 'This is the description for Product 4.',
+    logo: lab4,
+  },
+  {
+    id: '5',
+    name: 'Product 5',
+    description: 'This is the description for Product 5.',
+    logo: lab5,
+  },
+  {
+    id: '6',
+    name: 'Product 6',
+    description: 'This is the description for Product 6.',
+    logo: lab1,
+  },
+  {
+    id: '7',
+    name: 'Product 7',
+    description: 'This is the description for Product 7.',
+    logo: lab2,
   },
 ];
 
-const ProductItem = ({ product }) => (
+const ProductItem = ({ name,desc,logo }) => (
   <View style={styles.productItem}>
-    <Image source={product.image} style={styles.productImage} />
-    <Text style={styles.productName}>{product.name}</Text>
-    <Text style={styles.productDescription}>{product.description}</Text>
+    <Image source={logo} style={styles.productImage} />
+    <Text style={styles.productName}>{name}</Text>
+    <Text style={styles.productDescription}>{desc}</Text>
   </View>
 );
 
@@ -41,8 +64,8 @@ export default function Products() {
     <View style={styles.container}>
       <FlatList
         data={products}
+        renderItem={({ item }) => <ProductItem id={item.id} name={item.name} desc={item.description} logo={item.logo} />}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <ProductItem product={item} />}
       />
     </View>
   );
@@ -59,16 +82,11 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 15,
     marginBottom: 15,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
   },
   productImage: {
-    width: '5%',
-    height: "50%",
-    marginBottom: "7%",
+    width: 30,
+    height: 30,
+    marginRight: 10,
   },
   productName: {
     fontSize: 18,

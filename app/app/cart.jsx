@@ -3,7 +3,8 @@ import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet,Text,View } from 'react-native';
 
 
-export default function ModalScreen() {
+export default function Cart() 
+{
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Cart</Text>

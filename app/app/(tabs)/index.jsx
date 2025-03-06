@@ -32,8 +32,8 @@ const styles = StyleSheet.create({
   },
   
   contentContainer: {
-    alignItems: 'center', // Center items vertically
-    justifyContent: 'center', // Center items horizontally
+    alignItems: 'center',
+    justifyContent: 'center', 
     backgroundColor: '#191919',
   },
   logo: {
@@ -46,6 +46,6 @@ const styles = StyleSheet.create({
     fontSize: 35,
     fontWeight: 'bold',
     paddingBottom: 20,
-    color:'#FF6500',
+    color:'#408EC6',
   },
 });

@@ -60,11 +60,11 @@ const styles = StyleSheet.create({
       productName: {
         fontSize: 18,
         fontWeight: 'bold',
-        color:'#BED754'
+        color:'white'
       },
       productDescription: {
         fontSize: 20,
-        color: 'white',
+        color: '#BED754',
       },
 });
 

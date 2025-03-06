@@ -42,5 +42,17 @@
         "name": "Product 7",
         "description": "This is the description for Product 7.",
         "image": "lab2"
+      },
+      {
+        "id": "8",
+        "name": "lemon",
+        "description": "This is the description for Product 8.",
+        "image": "lab5"
+      },
+      {
+        "id": "9",
+        "name": "mango",
+        "description": "This is the description for Product 9.",
+        "image": "lab4"
       }
   ]

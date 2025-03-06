@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, TextInput, ScrollView, StyleSheet,Text } from 'react-native';
-import ProductItem from '../../components/ProductItem'; // Adjust the path based on your project structure
-import productsData from '../../products.json'; // Import the products from the JSON file
+import ProductItem from '../../components/ProductItem';
+import productsData from '../../products.json'; 
 
 const SearchProducts = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -16,7 +16,7 @@ const SearchProducts = () => {
     setProducts(mappedProducts);
   }, []);
 
-  // Only filter products if there's a search query
+  //filter products if we started typing only
   const filteredProducts = searchQuery
     ? products.filter(product =>
         product.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -47,7 +47,7 @@ const SearchProducts = () => {
           ))
         ) : (
           <View style={styles.noResults}>
-            <Text style={styles.noResultsText}>No products to display. Start typing to search.</Text>
+            <Text style={styles.noResultsText}>No products to display.{'\n'} Start typing to search.</Text>
           </View>
         )}
       </ScrollView>
@@ -64,8 +64,6 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     height: 45,
-    borderColor: 'black',
-    borderWidth: 1,
     paddingLeft: 15,
     marginBottom: 20,
     backgroundColor: '#BED754',
@@ -77,12 +75,12 @@ const styles = StyleSheet.create({
   noResults: {
     padding: 20,
     alignItems: 'center',
-     //affects the no products to display area only
+     //just affects the no products to display area only
   },
   noResultsText: {
     fontSize: 30,
-    color: '#FF6500',
-    //affects the no products to display area only
+    color: '#408EC6',
+    //just affects the no products to display area only
   },
 });
 

@@ -1,22 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, ScrollView, View, ImageBackground} from 'react-native';
 import lab1 from '../../assets/images/lab1.png'
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
 
 
 export default function About(){
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <View>
-      <ImageBackground
-      source={lab1} // Replace with your image URL
-      style={styles.background}
-    >
-      <View style={styles.overlay}>
-        <Text style={styles.headtitle}>About Us</Text>
-      </View>
-    </ImageBackground>
-    </View>
+
       <Text style={styles.title}>Team Members :</Text>
       <View style={styles.row}>
     <Text style={styles.name}>Youssef Taha</Text>
@@ -52,7 +45,7 @@ export default function About(){
         This is An E-commerce App Store for Laptops Called {'\n'}"LapTopia"
         </Text>
 
-      <Text style={{textAlign:'center', color:'#BED754'}}>
+      <Text style={{textAlign:'center', color:'red'}}>
         Your Ultimate Destination for Laptops
       </Text>
 
@@ -74,13 +67,13 @@ export default function About(){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: 'rgb(150, 221, 252)',
   },
   title: {
     fontSize: 30,
     fontWeight: 'bold',
     textAlign:'center',
-    color:'#408EC6'
+    color:'rgb(51, 0, 102)'
   },
   row: {
     flexDirection: 'row',
@@ -93,14 +86,14 @@ const styles = StyleSheet.create({
     fontSize: 25,
     lineHeight: 30,
     fontWeight: 'bold',
-    color:'#BED754'
+    color:'black'
   },
   number: {
     fontFamily: 'Courier', 
     fontSize: 25,
     lineHeight: 30,
     fontWeight: 'bold',
-    color:'#BED754'
+    color:'black'
   },
   subTitle: {
     fontSize: 16,
@@ -113,41 +106,7 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     padding:10,
     textAlign:'center',
-    color:'#BED754'
-  },
-  background: {
-    width: '100%',
-    height: 300, // Adjust based on the height you want
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent overlay for text visibility
-    padding: 20,
-    borderRadius: 10,
-    alignItems: 'center',
-  },
-  headtitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#FFFFFF',
-    marginBottom: 10,
-  },
-  description: {
-    fontSize: 16,
-    color: '#FFFFFF',
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  button: {
-    backgroundColor: '#FFD700', // Yellow color for the button
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 5,
-  },
-  buttonText: {
-    color: '#000000',
-    fontSize: 16,
+    color:'black',
     fontWeight: 'bold',
   },
 });

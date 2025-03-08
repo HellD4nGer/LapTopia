@@ -48,7 +48,7 @@ const Products = () => {
 
 const styles = StyleSheet.create({
     productItem: {
-        backgroundColor:'rgb(45, 1, 150)',
+        backgroundColor:'rgb(179, 39, 39)',
         borderRadius: 20,
         padding: 10,
         marginBottom:10,
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
       productName: {
         fontSize: 18,
         fontWeight: 'bold',
-        color:'rgb(2, 255, 23)'
+        color:'rgb(0, 0, 0)'
       },
       productDescription: {
         fontSize: 20,

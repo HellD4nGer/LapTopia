@@ -34,10 +34,10 @@ export default function TabLayout() {
           title: 'Products',
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerStyle: {
-            backgroundColor: '#FFFFFF',
+            backgroundColor: 'rgb(150, 221, 252)',
             borderBottomWidth: 0,
           },
-          headerTintColor: 'black',
+          headerTintColor: 'black', //changes the text on the top left of the page
           headerRight: () => (
             <Link href="/cart" asChild>
             <Pressable>
@@ -85,7 +85,7 @@ export default function TabLayout() {
           title: 'About',
           tabBarIcon: ({ color }) => <TabBarIcon name="info-circle" color={color} />,
           headerStyle: {
-            backgroundColor: '#FFFFFF',
+            backgroundColor: 'rgb(150, 221, 252)', //changes top bar color
             borderBottomWidth: 0,
           },
           headerTintColor: 'black',

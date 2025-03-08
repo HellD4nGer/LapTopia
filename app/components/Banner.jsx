@@ -6,7 +6,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 const { width: screenWidth } = Dimensions.get('window');
 
 const bannerImages = [
-  { id: 1, image: require('../assets/images/lab1.png') },
+  { id: 1, image: require('../assets/images/lab1.png') }, //now need to remove the images and add text instead
   { id: 2, image: require('../assets/images/lab2.png') },
   { id: 3, image: require('../assets/images/lab3.png') },
 ];
@@ -50,15 +50,14 @@ const styles = StyleSheet.create({
   image: {
     width: wp('100%'), 
     height: hp('40%'), 
-    borderRadius: 50,
-    backgroundColor:'rgb(0, 132, 255)',
+    backgroundColor:'rgb(3, 116, 223)',
    
   },
  
   paginationDot: {
     width: 15,
     height: 15,
-    borderRadius: 4,
+    borderRadius: 10,
     backgroundColor: 'rgb(0, 0, 0)',
   },
 });

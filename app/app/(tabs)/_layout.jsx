@@ -20,7 +20,7 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         tabBarInactiveTintColor: Colors[colorScheme ?? 'light'].text,
         tabBarStyle: {
-          backgroundColor: '#191919', // Set tab bar background color to Light Gray
+          backgroundColor: '#FFFFFF', // Set tab bar background color to Light Gray
           borderTopWidth: 0, // Remove the top border
         },
         // Disable the static render of the header on web
@@ -34,10 +34,10 @@ export default function TabLayout() {
           title: 'Products',
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerStyle: {
-            backgroundColor: '#191919',
+            backgroundColor: '#FFFFFF',
             borderBottomWidth: 0,
           },
-          headerTintColor: '#FFF',
+          headerTintColor: 'black',
           headerRight: () => (
             <Link href="/cart" asChild>
             <Pressable>
@@ -45,7 +45,7 @@ export default function TabLayout() {
                 <FontAwesome
                   name="shopping-cart"
                   size={25}
-                  color={pressed ? 'white' : 'white'} // Set the color to black (#000000)
+                  color={pressed ? 'black' : 'black'} // Set the color to black (#000000)
                   style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
                 />
               )}
@@ -61,10 +61,10 @@ export default function TabLayout() {
         title: 'Search',
         tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,
         headerStyle: {
-          backgroundColor: '#191919',
+          backgroundColor: '#FFFFFF',
           borderBottomWidth: 0, // Set the background color for the header
         },
-        headerTintColor: '#FFF',
+        headerTintColor: 'black',
       }}
     />
     <Tabs.Screen
@@ -73,10 +73,10 @@ export default function TabLayout() {
           title: 'Profile',
           tabBarIcon: ({ color }) => <TabBarIcon name="user-circle" color={color} />,
           headerStyle: {
-            backgroundColor: '#191919',
+            backgroundColor: '#FFFFFF',
             borderBottomWidth: 0,
           },
-          headerTintColor: '#FFF',
+          headerTintColor: 'black',
         }}
       />
       <Tabs.Screen
@@ -85,10 +85,10 @@ export default function TabLayout() {
           title: 'About',
           tabBarIcon: ({ color }) => <TabBarIcon name="info-circle" color={color} />,
           headerStyle: {
-            backgroundColor: '#191919',
+            backgroundColor: '#FFFFFF',
             borderBottomWidth: 0,
           },
-          headerTintColor: '#FFF',
+          headerTintColor: 'black',
         }}
       />
       

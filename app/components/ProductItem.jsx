@@ -16,35 +16,12 @@ const imageMap = {
 };
 
 const ProductItem = ({ name, description, image }) => (
-  <View style={styles.productItem}>
-    <Image source={imageMap[image]} style={styles.productImage} />
-    <Text style={styles.productName}>{name}</Text>
-    <Text style={styles.productDescription}>{description}</Text>
+  <View >
+    <Image source={imageMap[image]} />
+    <Text>{name}</Text>
+    <Text>{description}</Text>
   </View>
 );
 
-const styles = StyleSheet.create({
-  productItem: {
-    backgroundColor: '#2C3E50',
-    borderRadius: 8,
-    padding: 15,
-    marginBottom: 15,
-    width: '100%',
-  },
-  productImage: {
-    width: 120,
-    height: 120,
-    marginRight: 10,
-  },
-  productName: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#BED754',
-  },
-  productDescription: {
-    fontSize: 20,
-    color: 'white',
-  },
-});
 
 export default ProductItem;

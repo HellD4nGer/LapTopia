@@ -11,7 +11,6 @@ const bannerImages = [
   { id: 3, image: require('../assets/images/lab3.png') },
   { id: 4, image: require('../assets/images/lab4.png') },
 ];
-// const extendedBannerImages = [...bannerImages, bannerImages[1]];
 
 
 const Banner = () => {
@@ -21,11 +20,11 @@ const Banner = () => {
       style={styles.wrapper}
       showsPagination={true} // Enable pagination
       autoplay={true}
-      autoplayTimeout={3} // 3 seconds
+      autoplayTimeout={3.7}
       loop={true}
-      dot={<View style={styles.paginationDot} />} // Default dot style
-      activeDot={<View style={[styles.paginationDot, styles.activePaginationDot]} />} // Active dot style
-      paginationStyle={styles.paginationContainer} // Pagination container style
+      dot={<View style={styles.paginationDot} />}
+      activeDot={<View style={[styles.paginationDot, styles.activePaginationDot]} />}
+      paginationStyle={styles.paginationContainer}
     >
       {bannerImages.map((item) => (
         <View key={item.id} style={styles.slide}>

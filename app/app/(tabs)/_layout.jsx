@@ -34,7 +34,7 @@ export default function TabLayout() {
           title: 'Products',
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerStyle: {
-            backgroundColor: 'rgb(150, 221, 252)',
+            backgroundColor: 'rgb(0, 176, 252)',
             borderBottomWidth: 0,
           },
           headerTintColor: 'black', //changes the text on the top left of the page
@@ -61,7 +61,7 @@ export default function TabLayout() {
         title: 'Search',
         tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,
         headerStyle: {
-          backgroundColor: '#FFFFFF',
+          backgroundColor: 'rgb(0, 176, 252)',
           borderBottomWidth: 0, // Set the background color for the header
         },
         headerTintColor: 'black',

@@ -48,7 +48,7 @@ const Products = () => {
 
 const styles = StyleSheet.create({
     productItem: {
-        backgroundColor:'rgb(179, 39, 39)',
+        backgroundColor:'rgb(110, 137, 255)',
         borderRadius: 20,
         padding: 10,
         marginBottom:10,

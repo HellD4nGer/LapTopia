@@ -60,26 +60,26 @@ const SearchProducts = () => {
 const styles = StyleSheet.create({
   container: {
     flex:1,
-    backgroundColor: '#191919',
+    backgroundColor: 'rgb(0, 176, 252)',
   },
   searchInput: {
     height: 45,
     paddingLeft: 15,
     marginBottom: 20,
-    backgroundColor: '#BED754',
+    backgroundColor:'rgb(110, 137, 255)',
     borderRadius:50,
-  },
-  scrollViewContent: {
-  
   },
   noResults: {
     padding: 20,
     alignItems: 'center',
      //just affects the no products to display area only
   },
+  scrollViewContent: {
+  //styles for the resulted products
+  },
   noResultsText: {
     fontSize: 30,
-    color: '#408EC6',
+    color:'rgb(0, 0, 0)'
     //just affects the no products to display area only
   },
 });

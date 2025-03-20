@@ -1,8 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, ScrollView, View, ImageBackground} from 'react-native';
-import lab1 from '../../assets/images/lab1.png'
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-
 
 
 export default function About(){

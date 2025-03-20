@@ -5,6 +5,13 @@ import { Pressable } from 'react-native';
 import Colors from '../../constants/Colors';
 import { useColorScheme } from '../../components/useColorScheme';
 import { useClientOnlyValue } from '../../components/useClientOnlyValue';
+import { useNavigation, DrawerActions } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
+import About from './About.jsx';
+import Profile from './Profile.jsx';
+
+const Drawer = createDrawerNavigator();
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props) {
@@ -12,32 +19,35 @@ function TabBarIcon(props) {
 }
 
 export default function TabLayout() {
+
   const colorScheme = useColorScheme();
 
+  const navigation = useNavigation();
+  const drawerNavigation = navigation.getParent('Drawer');
+  
+ 
   return (
-    <Tabs
+
+    <Drawer.Navigator
+      initialRouteName="Home"
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        tabBarInactiveTintColor: Colors[colorScheme ?? 'light'].text,
-        tabBarStyle: {
-          backgroundColor: '#FFFFFF', // Set tab bar background color to Light Gray
-          borderTopWidth: 0, // Remove the top border
+        drawerStyle: {
+          backgroundColor: '#FFFFFF', // Background color of the Drawer
+          width: 200, // Width of the Drawer
         },
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
+        drawerActiveTintColor: 'rgb(0, 176, 252)', // Color of the active Drawer item
+        drawerInactiveTintColor: '#000000', // Color of the inactive Drawer items
+        headerStyle: {
+          backgroundColor: 'rgb(0, 176, 252)',
+        },
+        headerTintColor: 'rgb(0, 0, 0)',
       }}
     >
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Products',
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
-          headerStyle: {
-            backgroundColor: 'rgb(0, 176, 252)',
-            borderBottomWidth: 0,
-          },
-          headerTintColor: 'black', //changes the text on the top left of the page
+        <Drawer.Screen
+        name="Home"
+        options={{ 
+
+          headerShown:true, 
           headerRight: () => (
             <Link href="/cart" asChild>
             <Pressable>
@@ -51,12 +61,60 @@ export default function TabLayout() {
               )}
             </Pressable>
           </Link>
-          
           ),
+
+        }}
+      >
+
+        {() => (
+
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarInactiveTintColor: Colors[colorScheme ?? 'light'].text,
+        tabBarStyle: {
+          backgroundColor: '#FFFFFF',
+          borderTopWidth: 0, // Remove the top border
+        },
+        // Disable the static render of the header on web
+        // to prevent a hydration error in React Navigation v6.
+        headerShown: useClientOnlyValue(false, true),
+      }}
+    >
+      <Tabs.Screen
+        name="index"
+        options={{
+          headerShown:false, //to hide the Header Product from the top left
+          title: 'Products',
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+
+          //The bellow styles related to the top bar which we need to comment since not needed right now and no need to delete it
+          //headerStyle: {
+          //backgroundColor: 'rgb(0, 176, 252)',
+          //borderBottomWidth: 0,
+            
+          //},
+          //headerTintColor: 'black', //changes the text on the top left of the page
+          
+          // headerRight: () => (
+          //   <Link href="/cart" asChild>
+          //   <Pressable>
+          //     {({ pressed }) => (
+          //       <FontAwesome
+          //         name="shopping-cart"
+          //         size={25}
+          //         color={pressed ? 'black' : 'black'} // Set the color to black (#000000)
+          //         style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+          //       />
+          //     )}
+          //   </Pressable>
+          // </Link>
+          // ),
+
         }}
       />
       <Tabs.Screen
-      name="searchProducts"
+      name="SearchProducts"
       options={{
         title: 'Search',
         tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,
@@ -68,7 +126,7 @@ export default function TabLayout() {
       }}
     />
     <Tabs.Screen
-        name="profile"
+        name="Profile"
         options={{
           title: 'Profile',
           tabBarIcon: ({ color }) => <TabBarIcon name="user-circle" color={color} />,
@@ -80,7 +138,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="about"
+        name="About"
         options={{
           title: 'About',
           tabBarIcon: ({ color }) => <TabBarIcon name="info-circle" color={color} />,
@@ -91,7 +149,24 @@ export default function TabLayout() {
           headerTintColor: 'black',
         }}
       />
-      
     </Tabs>
+
+     )}
+
+</Drawer.Screen>
+
+
+<Drawer.Screen
+        name="About"
+        component={About}
+        options={{ drawerLabel: 'About' }}
+      />
+      <Drawer.Screen
+        name="Profile"
+        component={Profile}
+        options={{ drawerLabel: 'Profile' }}
+      />
+</Drawer.Navigator>
+
   );
 }

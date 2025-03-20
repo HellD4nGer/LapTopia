@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { Text, Image, StyleSheet, ScrollView } from 'react-native';
 import Products from '../../components/Products';
 import logopic from "../../assets/images/logo.png";
 import Banner from '../../components/Banner';
@@ -10,10 +10,8 @@ export default function Home() {
   return (
     
     <ScrollView contentContainerStyle={styles.contentContainer}>
-       
        <Image source={logopic} style={styles.logo} />
        <Text style={styles.title}>Welcome to LapTopia</Text>
-
         <Banner />
         <Products />
     </ScrollView>

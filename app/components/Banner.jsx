@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
 import { Text, View, Image, StyleSheet, Dimensions, Easing  } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Swiper from 'react-native-swiper';
 
-const screenWidth = Dimensions.get('window').width;
 
 const bannerImages = [
   { id: 1, image: require('../assets/images/lab1.png') },
@@ -49,7 +47,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgb(0, 68, 255)',
+    backgroundColor:'rgb(206, 252, 0)',
   },
   image: {
     width: wp('90%'), 

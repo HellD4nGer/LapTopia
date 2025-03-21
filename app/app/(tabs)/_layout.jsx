@@ -1,15 +1,17 @@
-import React from 'react';
+import {useEffect, useState} from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
+import { Modal, Pressable, View, StyleSheet } from 'react-native';
 import Colors from '../../constants/Colors';
 import { useColorScheme } from '../../components/useColorScheme';
 import { useClientOnlyValue } from '../../components/useClientOnlyValue';
 import { useNavigation, DrawerActions } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-
 import About from './About.jsx';
 import Profile from './Profile.jsx';
+import LottieView from 'lottie-react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
 
 const Drawer = createDrawerNavigator();
 
@@ -21,12 +23,40 @@ function TabBarIcon(props) {
 export default function TabLayout() {
 
   const colorScheme = useColorScheme();
-
+  const [showModal, setShowModal] = useState(true);
   const navigation = useNavigation();
   const drawerNavigation = navigation.getParent('Drawer');
   
+  useEffect(() => {
+    if (showModal) {
+      const timer = setTimeout(() => {
+        setShowModal(false);
+      }, 3500);
+
+      return () => clearTimeout(timer); // Cleanup the timer
+    }
+  }, [showModal]);
  
   return (
+
+    <>
+    <Modal
+    visible={showModal}
+    transparent={true}
+    animationType="fade"
+    onRequestClose={() => setShowModal(false)}
+  >
+    <View style={styles.modalContainer}>
+      <View style={styles.modalContent}>
+        <LottieView
+          source={require('../../loadAnim1.json')}
+          autoPlay
+          loop
+          style={{ width: wp('70%'), height: hp('50%') }}
+        />
+      </View>
+    </View>
+  </Modal>
 
     <Drawer.Navigator
       initialRouteName="Home"
@@ -38,7 +68,7 @@ export default function TabLayout() {
         drawerActiveTintColor: 'rgb(0, 176, 252)', // Color of the active Drawer item
         drawerInactiveTintColor: '#000000', // Color of the inactive Drawer items
         headerStyle: {
-          backgroundColor: 'rgb(0, 176, 252)',
+          backgroundColor: 'rgb(150, 221, 252)',
         },
         headerTintColor: 'rgb(0, 0, 0)',
       }}
@@ -113,6 +143,8 @@ export default function TabLayout() {
 
         }}
       />
+
+      
       <Tabs.Screen
       name="SearchProducts"
       options={{
@@ -123,6 +155,7 @@ export default function TabLayout() {
           borderBottomWidth: 0, // Set the background color for the header
         },
         headerTintColor: 'black',
+        headerShown:false,
       }}
     />
     <Tabs.Screen
@@ -135,6 +168,7 @@ export default function TabLayout() {
             borderBottomWidth: 0,
           },
           headerTintColor: 'black',
+          headerShown:false,
         }}
       />
       <Tabs.Screen
@@ -147,6 +181,7 @@ export default function TabLayout() {
             borderBottomWidth: 0,
           },
           headerTintColor: 'black',
+          headerShown:false,
         }}
       />
     </Tabs>
@@ -154,7 +189,6 @@ export default function TabLayout() {
      )}
 
 </Drawer.Screen>
-
 
 <Drawer.Screen
         name="About"
@@ -168,5 +202,17 @@ export default function TabLayout() {
       />
 </Drawer.Navigator>
 
+ </>
   );
 }
+
+
+const styles = StyleSheet.create({
+  modalContainer: {
+    flex: 1,
+    alignItems: 'center',
+    padding:90,
+    backgroundColor: 'rgb(0, 0, 0)', // Semi-transparent background
+  },
+
+});

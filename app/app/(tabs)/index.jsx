@@ -24,7 +24,8 @@ const styles = StyleSheet.create({
   contentContainer: {
     alignItems: 'center',
     justifyContent: 'center', 
-    backgroundColor: 'rgb(0, 176, 252)',
+    backgroundColor: 'rgb(150, 221, 252)',
+
   },
   logo: {
     width: wp('60%'), // 80% of the screen width

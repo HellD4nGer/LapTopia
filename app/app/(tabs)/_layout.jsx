@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
-import { Modal, Pressable, View, StyleSheet } from 'react-native';
+import { Modal, Pressable, View, StyleSheet, Image, Text, StatusBar, Platform} from 'react-native';
 import Colors from '../../constants/Colors';
 import { useColorScheme } from '../../components/useColorScheme';
 import { useClientOnlyValue } from '../../components/useClientOnlyValue';
@@ -11,7 +11,8 @@ import About from './About.jsx';
 import Profile from './Profile.jsx';
 import LottieView from 'lottie-react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-
+import logopic from "../../assets/images/logo5.png";
+import * as NavigationBar from 'expo-navigation-bar';
 
 const Drawer = createDrawerNavigator();
 
@@ -25,21 +26,28 @@ export default function TabLayout() {
   const colorScheme = useColorScheme();
   const [showModal, setShowModal] = useState(true);
   const navigation = useNavigation();
-  const drawerNavigation = navigation.getParent('Drawer');
-  
+
+  NavigationBar.setVisibilityAsync('hidden');
+  StatusBar.setHidden(true); 
+ 
   useEffect(() => {
     if (showModal) {
+     
       const timer = setTimeout(() => {
         setShowModal(false);
-      }, 3500);
+      }, 5000);
 
-      return () => clearTimeout(timer); // Cleanup the timer
+      return () => {
+        clearTimeout(timer)
+        NavigationBar.setVisibilityAsync('visible');
+      }; // Cleanup the timer
     }
   }, [showModal]);
  
   return (
 
     <>
+    <StatusBar hidden={true} />
     <Modal
     visible={showModal}
     transparent={true}
@@ -47,14 +55,7 @@ export default function TabLayout() {
     onRequestClose={() => setShowModal(false)}
   >
     <View style={styles.modalContainer}>
-      <View style={styles.modalContent}>
-        <LottieView
-          source={require('../../loadAnim1.json')}
-          autoPlay
-          loop
-          style={{ width: wp('70%'), height: hp('50%') }}
-        />
-      </View>
+        <Image source={logopic} style={styles.logo} /> 
     </View>
   </Modal>
 
@@ -187,13 +188,12 @@ export default function TabLayout() {
     </Tabs>
 
      )}
-
 </Drawer.Screen>
 
-<Drawer.Screen
-        name="About"
-        component={About}
-        options={{ drawerLabel: 'About' }}
+      <Drawer.Screen
+              name="About"
+              component={About}
+              options={{ drawerLabel: 'About' }}
       />
       <Drawer.Screen
         name="Profile"
@@ -210,9 +210,21 @@ export default function TabLayout() {
 const styles = StyleSheet.create({
   modalContainer: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: 'center', 
     padding:90,
-    backgroundColor: 'rgb(0, 0, 0)', // Semi-transparent background
+    backgroundColor: 'black', // 
   },
-
+  logo: {
+    width: wp('90%'),
+    height: hp('50%'), 
+    alignItems:'center',
+    justifyContent:'center',
+    margin:40,
+  },
+  title: {
+    textAlign:'center',
+    fontSize: 30,
+    fontWeight: 'bold',
+    color:'rgb(255, 255, 255)',
+  },
 });

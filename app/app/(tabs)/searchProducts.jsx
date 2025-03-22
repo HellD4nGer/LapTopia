@@ -37,7 +37,7 @@ const SearchProducts = () => {
         )
       : [];
       setfilteredProducts(filtered);
-    }, 5000);
+    }, 4600);
 
     };
 
@@ -48,13 +48,13 @@ const SearchProducts = () => {
         <TextInput
           style={styles.searchInput}
           placeholder="Search Products . . . . . ."
-          placeholderTextColor={"rgb(76, 0, 252)"}
+          placeholderTextColor={"rgb(0, 0, 0)"}
           value={searchQuery}
           onChangeText={text => setSearchQuery(text)}
         />
 
         <TouchableOpacity onPress={handleSearch}>
-        <MaterialCommunityIcons name="shopping-search" size={45} color="rgb(98, 0, 255)" style={styles.searchIcon} />
+        <MaterialCommunityIcons name="shopping-search" size={45} color="rgb(255, 238, 0)" style={styles.searchIcon} />
         </TouchableOpacity>
 
       </View>
@@ -73,6 +73,7 @@ const SearchProducts = () => {
               loop
               style={{ width: wp('70%'), height: hp('50%') }}
             />
+            <Text style={styles.loading}>Searching....</Text>
           </View>
         </View>
       </Modal>
@@ -101,7 +102,7 @@ const SearchProducts = () => {
 const styles = StyleSheet.create({
   container: {
     flex:1,
-    backgroundColor: 'rgb(150, 221, 252)',
+    backgroundColor: 'rgb(0, 177, 253)',
   },
   searchBar: {
     flexDirection:'row',
@@ -119,31 +120,37 @@ const styles = StyleSheet.create({
     paddingLeft: 19,
     marginTop:10,
     marginBottom: 10,
-    backgroundColor:'rgb(255, 255, 255)',
+    backgroundColor:'rgb(255, 238, 0)',
     borderRadius:50,
     borderWidth:1,
-    borderColor:'rgb(111, 0, 255)',
+    borderColor:'rgb(0, 0, 0)',
   },
-  message: {
-    textAlign: 'center',
-    fontSize: 20,
-    color: 'rgb(98, 0, 255)',
-    marginBottom: 16,
-  },
-  noResults: {
-    alignItems: 'center',
-     //just affects the no products to display area only
-  },
-  noResultsText: {
-    fontSize: 30,
-    color:'rgb(0, 0, 0)'
-    //just affects the no products to display area only
-  },
+  // message: {
+  //   textAlign: 'center',
+  //   fontSize: 20,
+  //   color: 'rgb(0, 0, 0)',
+  //   marginBottom: 16,
+  // },
+  // noResults: {
+  //   alignItems: 'center',
+  //    //just affects the no products to display area only
+  // },
+  // noResultsText: {
+  //   fontSize: 30,
+  //   color:'rgb(0, 0, 0)'
+  //   //just affects the no products to display area only
+  // },
   modalContainer: {
     flex: 1,
     alignItems: 'center',
-    padding:90,
-    backgroundColor: 'rgba(0, 0, 0, 0.94)', // Semi-transparent background
+    padding:60,
+    backgroundColor: 'rgba(0, 0, 0, 0.93)', // Semi-transparent background
+  },
+  loading: {
+    textAlign:'center',
+    color:'rgb(251, 255, 0)',
+    marginBottom:50,
+    fontSize:30,
   },
 });
 

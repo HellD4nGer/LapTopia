@@ -1,17 +1,30 @@
-import React from 'react';
-import { Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { Text, StyleSheet, ScrollView, View, Animated } from 'react-native';
 import Products from '../../components/Products';
-import logopic from "../../assets/images/logo.png";
 import Banner from '../../components/Banner';
+import LottieView from 'lottie-react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import TypingAnimation from '../../components/TypingAnimation';
+import NeonText from '../../components/NeonText';
 
 
 export default function Home() {
   return (
     
     <ScrollView contentContainerStyle={styles.contentContainer}>
-       <Image source={logopic} style={styles.logo} />
-       <Text style={styles.title}>Welcome to LapTopia</Text>
+
+       <View style={styles.container}>
+    
+      
+      <TypingAnimation text=". Recently Arrived" speed={210} />
+    
+      <LottieView
+        source={require('../../flightAnimat2.json')}
+        autoPlay
+        loop
+        style={styles.animation}
+      />
+
+      </View>
         <Banner />
         <Products />
     </ScrollView>
@@ -22,29 +35,20 @@ export default function Home() {
 const styles = StyleSheet.create({
 
   contentContainer: {
-    alignItems: 'center',
+    alignItems:'center',
     justifyContent: 'center', 
     backgroundColor: 'rgb(150, 221, 252)',
 
   },
-  logo: {
-    width: wp('60%'), // 80% of the screen width
-    height: hp('40%'), // 50% of the screen height
-    alignItems:'center',
-    justifyContent:'center',
+  container: {
+    flexDirection:'row',
+    paddingBottom:25,
+    paddingTop:15,
   },
-  title: {
-    fontSize: 35,
-    fontWeight: 'bold',
-    paddingBottom: 5,
-    color:'black',
+  animation: {
+    width: wp('30%'), // Adjust size of the animation
+    height: hp('14%'),
   },
 });
 
 
-      // {/* <FlatList
-      //   data={products}
-      //   renderItem={({ item }) => <ProductItem name={item.name} desc={item.description} image={item.image} />}
-      //   keyExtractor={(item) => item.id}
-      
-      // /> */}

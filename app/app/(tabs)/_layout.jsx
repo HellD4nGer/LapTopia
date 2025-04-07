@@ -91,6 +91,31 @@ export default function TabLayout() {
           headerTintColor: '#FFF',
         }}
       />
+      <Tabs.Screen
+        name="logIn"
+        options={{
+          title: 'LogIn',
+          tabBarIcon: ({ color }) => <TabBarIcon name="arrow-right-to-bracket" color={color} />,
+          headerStyle: {
+            backgroundColor: '#191919',
+            borderBottomWidth: 0,
+          },
+          headerTintColor: '#FFF',
+        }}
+      />
+      <Tabs.Screen
+        name="signUp"
+        options={{
+          title: 'SignUp',
+          tabBarIcon: ({ color }) => <TabBarIcon name="log-out" color={color} />,
+          headerStyle: {
+            backgroundColor: '#191919',
+            borderBottomWidth: 0,
+          },
+          headerTintColor: '#FFF',
+        }}
+        
+      />
       
     </Tabs>
   );

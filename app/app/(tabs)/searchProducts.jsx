@@ -37,7 +37,7 @@ const SearchProducts = () => {
         )
       : [];
       setfilteredProducts(filtered);
-    }, 4600);
+    }, 2420);
 
     };
 
@@ -54,7 +54,7 @@ const SearchProducts = () => {
         />
 
         <TouchableOpacity onPress={handleSearch}>
-        <MaterialCommunityIcons name="shopping-search" size={45} color="rgb(255, 238, 0)" style={styles.searchIcon} />
+        <MaterialCommunityIcons name="shopping-search" size={45} color="rgb(0, 0, 0)" style={styles.searchIcon} />
         </TouchableOpacity>
 
       </View>
@@ -102,7 +102,7 @@ const SearchProducts = () => {
 const styles = StyleSheet.create({
   container: {
     flex:1,
-    backgroundColor: 'rgb(0, 177, 253)',
+    backgroundColor: 'rgb(0, 177, 253)', //old color 'rgb(0, 177, 253)',
   },
   searchBar: {
     flexDirection:'row',
@@ -120,10 +120,10 @@ const styles = StyleSheet.create({
     paddingLeft: 19,
     marginTop:10,
     marginBottom: 10,
-    backgroundColor:'rgb(255, 238, 0)',
+    backgroundColor:'rgb(255, 251, 0)',
     borderRadius:50,
-    borderWidth:1,
-    borderColor:'rgb(0, 0, 0)',
+    // borderWidth:1,
+    // borderColor:'rgb(255, 0, 0)',
   },
   // message: {
   //   textAlign: 'center',

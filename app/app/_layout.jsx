@@ -92,6 +92,12 @@ function RootLayoutNav() {
             >
               <Text>Cart</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate('login')}
+              style={{ padding: 19 }}
+            >
+              <Text>Login</Text>
+            </TouchableOpacity>
        
           </View>
         )}
@@ -112,6 +118,14 @@ function RootLayoutNav() {
             title: 'Cart',
           }}
         />
+         <Drawer.Screen
+          name="login"
+          options={{
+            headerShown: true,
+            title: 'Login',
+          }}
+        />
+
 
         {/* we have a highlight problem in the drawer that after selecting a tab inside tabs
         the drawer still think we are in the home and will only highlight home 

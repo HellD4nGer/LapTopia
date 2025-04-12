@@ -26,7 +26,7 @@ export default function TabLayout() {
   const [showModal, setShowModal] = useState(true);
  
 
-  NavigationBar.setVisibilityAsync('hidden');
+  NavigationBar.setVisibilityAsync('hidden'); //if removed will stop it from appear and disappear but will stay at the modal page too
   StatusBar.setHidden(true); 
  
   useEffect(() => {
@@ -34,7 +34,7 @@ export default function TabLayout() {
      
       const timer = setTimeout(() => {
         setShowModal(false);
-      }, 2500);
+      }, 2300);
 
       return () => {
         clearTimeout(timer)

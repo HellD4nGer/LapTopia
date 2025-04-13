@@ -7,12 +7,14 @@ import { useColorScheme } from '../../components/useColorScheme';
 import { useClientOnlyValue } from '../../components/useClientOnlyValue';
 import { useNavigation, DrawerActions } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import About from './About.jsx';
+import About from './about.jsx';
 import Profile from './Profile.jsx';
 import LottieView from 'lottie-react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import logopic from "../../assets/images/logo5.png";
 import * as NavigationBar from 'expo-navigation-bar';
+import Login from '../login.jsx';
+import Signup from '../signup.jsx';
 
 const Drawer = createDrawerNavigator();
 
@@ -186,9 +188,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="logIn"
+        name="Login"
         options={{
-          title: 'LogIn',
+          title: 'Login',
           tabBarIcon: ({ color }) => <TabBarIcon name="arrow-right-to-bracket" color={color} />,
           headerStyle: {
             backgroundColor: '#191919',
@@ -198,9 +200,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="signUp"
+        name="Signup"
         options={{
-          title: 'SignUp',
+          title: 'Signup',
           tabBarIcon: ({ color }) => <TabBarIcon name="log-out" color={color} />,
           headerStyle: {
             backgroundColor: '#191919',
@@ -215,6 +217,16 @@ export default function TabLayout() {
 
      )}
 </Drawer.Screen>
+      <Drawer.Screen
+              name="Login"
+              component={Login}
+              options={{ drawerLabel: 'Login' }}
+      />
+      <Drawer.Screen
+              name="Signup"
+              component={Signup}
+              options={{ drawerLabel: 'Signup' }}
+      />
 
       <Drawer.Screen
               name="About"

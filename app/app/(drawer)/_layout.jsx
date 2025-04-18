@@ -99,13 +99,13 @@ export default function Drawerlayout() {
           <Text>Cart</Text>
         </TouchableOpacity>
 
-        {/* <TouchableOpacity
+         <TouchableOpacity
           onPress={() => router.push('/(drawer)/login')}
           style={{ padding: 19 }}
         >
           <Ionicons name="logo-xing" size={48} color="#666" />
           <Text>Login</Text>
-        </TouchableOpacity> */}
+        </TouchableOpacity> 
 
         <TouchableOpacity
             style={{ flexDirection: 'row', alignItems: 'center', padding: 15, marginTop: 20 }}

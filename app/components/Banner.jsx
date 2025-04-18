@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'rgb(0, 255, 34)', //old color rgb(16, 151, 241)
+    backgroundColor:'rgb(255, 255, 255)', //old color rgb(16, 151, 241)
   },
   image: {
     width: wp('90%'), 

@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { useEffect } from 'react';
+import { FontAwesome } from '@expo/vector-icons';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { Drawer } from 'expo-router/drawer';
 import * as SplashScreen from 'expo-splash-screen';
 import { useColorScheme } from '../components/useColorScheme';
-import { Link} from 'expo-router';
-import { Pressable, View, Text, TouchableOpacity } from 'react-native'; // Import Pressable from react-native
+import { Stack } from 'expo-router';
+// import { auth } from '../../firebase/config';
+// import { useRouter } from 'expo-router';
 
 
 export {
@@ -23,6 +23,22 @@ export const unstable_settings = {
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  
+  //this part so that it checks the login of the user which we dont need since we are an e-commerce so users can see shop without needing to sign in
+  // const router = useRouter();
+  // useEffect(() => {
+  //   const unsubscribe = auth.onAuthStateChanged(user => {
+  //     if (user) {
+  //       router.push('/(drawer)/(tabs)/index');
+  //     }
+  //     else{
+  //       router.push('/login');
+  //     }
+  //   });
+
+  //   return unsubscribe;
+  // }, []);
+  
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
     ...FontAwesome.font,
@@ -51,93 +67,9 @@ function RootLayoutNav() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-
-   <Drawer
-        screenOptions={{
-          title:'Home',
-          drawerStyle: {
-            backgroundColor: '#FFFFFF', // Background color of the Drawer
-            width: 200, // Width of the Drawer
-          },
-          drawerActiveTintColor: 'rgb(0, 176, 252)', // Color of the active Drawer item
-          drawerInactiveTintColor: '#000000', // Color of the inactive Drawer items
-          headerStyle: {
-            backgroundColor: 'rgb(255, 255, 255)', //color of the top bar
-          },
-          headerTintColor: 'rgb(0, 0, 0)', //color of the title in the top bar
-          headerRight: () => ( // Add the shopping cart icon here
-            <Link href="/cart" asChild>
-                  <FontAwesome
-                    name="shopping-cart"
-                    size={25}
-                    color='black'
-                    style={{ marginRight: 15, }}
-                  />
-            </Link>
-          ),
-        }}
-        
-        drawerContent={(props) => (
-          <View>
-            {/* Manually define Drawer items */}
-            <TouchableOpacity
-              onPress={() => props.navigation.navigate('(tabs)')}
-              style={{ padding: 19 }}
-            >
-              <Text>Home</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => props.navigation.navigate('cart')}
-              style={{ padding: 19 }}
-            >
-              <Text>Cart</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => props.navigation.navigate('login')}
-              style={{ padding: 19 }}
-            >
-              <Text>Login</Text>
-            </TouchableOpacity>
-       
-          </View>
-        )}
-      >
-       
-        {/* Home Screen */}
-        <Drawer.Screen
-          name="(tabs)" // Corresponds to `app/(tabs)/index.jsx`
-          options={{
-            headerShown: true,
-            title: 'Home',
-          }}
-        />
-        <Drawer.Screen
-          name="cart"
-          options={{
-            headerShown: true,
-            title: 'Cart',
-          }}
-        />
-         <Drawer.Screen
-          name="login"
-          options={{
-            headerShown: true,
-            title: 'Login',
-          }}
-        />
-
-
-        {/* we have a highlight problem in the drawer that after selecting a tab inside tabs
-        the drawer still think we are in the home and will only highlight home 
-        <Drawer.Screen
-          name="AboutWrapper" // Corresponds to `app/(tabs)/index.jsx`
-          options={{
-            headerShown: true,
-            title: 'About',
-          }}
-        /> */}
-
-        </Drawer>
+      <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="(drawer)" />
+    </Stack>
      
   </ThemeProvider>
   );

@@ -1,23 +1,19 @@
 import {useEffect, useState} from 'react';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { FontAwesome, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { Link, Tabs } from 'expo-router';
 import { Modal, Pressable, View, StyleSheet, Image, Text, StatusBar, } from 'react-native';
-import Colors from '../../constants/Colors';
-import { useColorScheme } from '../../components/useColorScheme';
-import { useClientOnlyValue } from '../../components/useClientOnlyValue';
-import { useNavigation, DrawerActions } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import About from './About.jsx';
-import Profile from './Profile.jsx';
+import Colors from '../../../constants/Colors.js';
+import { useColorScheme } from '../../../components/useColorScheme.js';
+import { useClientOnlyValue } from '../../../components/useClientOnlyValue.js';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import logopic from "../../assets/images/logo5.png";
+import logopic from "../../../assets/images/logo5.png";
 import * as NavigationBar from 'expo-navigation-bar';
 
 
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+  return <FontAwesome name='address-book' size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
 export default function TabLayout() {

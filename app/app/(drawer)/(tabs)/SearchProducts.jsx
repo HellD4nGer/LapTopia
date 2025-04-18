@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { View, TextInput, ScrollView, StyleSheet, Text, TouchableOpacity, Modal } from 'react-native';
-import ProductItem from '../../components/ProductItemSearch';
-import productsData from '../../products.json'; 
+import ProductItem from '../../../components/ProductItemSearch';
+import productsData from '../../../products.json'; 
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import LottieView from 'lottie-react-native';
+
 
 const SearchProducts = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -68,7 +69,7 @@ const SearchProducts = () => {
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
           <LottieView
-              source={require('../../loadAnim1.json')}
+              source={require('../../../loadAnim1.json')}
               autoPlay
               loop
               style={{ width: wp('70%'), height: hp('50%') }}

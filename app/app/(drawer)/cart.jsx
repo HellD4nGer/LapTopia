@@ -1,10 +1,25 @@
-import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet,Text,View } from 'react-native';
-
+import { StyleSheet,Text,View } from 'react-native';
+// import { auth } from '../../firebase/config';
+// import { useRouter } from 'expo-router';
 
 export default function Cart() 
 {
+
+//   const router = useRouter();
+//   useEffect(() => {
+//     const unsubscribe = auth.onAuthStateChanged(user => {
+//       if (user) {
+//         router.push('/(drawer)/(tabs)/index');
+//       }
+//       else{
+//         router.push('/login');
+//       }
+//     });
+
+//     return unsubscribe;
+//   }, []);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Cart</Text>

@@ -40,10 +40,10 @@ export default function About(){
       <Text style={styles.title}>Description :</Text>
 
       <Text style={styles.subTitle}>
-        This is An E-commerce App Store for Laptops Called {'\n'}"LapTopia"
+        This is An E-commerce App Store{'\n'} for Laptops Called {'\n'}"LapTopia"
         </Text>
 
-      <Text style={{textAlign:'center', color:'rgb(200, 255, 0)'}}>
+      <Text style={{textAlign:'center', color:'rgb(255, 255, 255)'}}>
         Your Ultimate Destination for Laptops
       </Text>
 
@@ -100,7 +100,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     textAlign:'center',
-    color:'white'
+    color:'rgb(0, 4, 255)',
+    padding:7,
   },
   desc: {
     fontSize: 20,

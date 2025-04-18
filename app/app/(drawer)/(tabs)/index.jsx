@@ -1,10 +1,10 @@
-import { Text, StyleSheet, ScrollView, View, Animated } from 'react-native';
-import Products from '../../components/Products';
-import Banner from '../../components/Banner';
+import { Text, StyleSheet, ScrollView, View, } from 'react-native';
+import Products from '../../../components/Products';
+import Banner from '../../../components/Banner';
 import LottieView from 'lottie-react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import TypingAnimation from '../../components/TypingAnimation';
-import NeonText from '../../components/NeonText';
+import TypingAnimation from '../../../components/TypingAnimation';
+
 
 
 export default function Home() {
@@ -15,10 +15,10 @@ export default function Home() {
        <View style={styles.container}>
     
       
-      <TypingAnimation text=". Recently Arrived" speed={210} />
+      <TypingAnimation text="  Recently Arrived" speed={210} />
     
       <LottieView
-        source={require('../../flightAnimat2.json')}
+        source={require('../../../flightAnimat2.json')}
         autoPlay
         loop
         style={styles.animation}
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     alignItems:'center',
     justifyContent: 'center', 
-    backgroundColor: 'rgb(150, 221, 252)',
+    backgroundColor: 'rgb(0, 177, 253)',
 
   },
   container: {

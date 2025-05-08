@@ -60,7 +60,7 @@ export default function Single_item() {
         <Text style={styles.price}>EGP {product.price || 15000}</Text>
       </View>
 
-      {/* ✅ التبويبات */}
+      
       <View style={styles.tabsContainer}>
         <TouchableOpacity onPress={() => setActiveTab('details')}>
           <Text style={[styles.tab, activeTab === 'details' && styles.activeTab]}>Details</Text>
@@ -70,7 +70,7 @@ export default function Single_item() {
         </TouchableOpacity>
       </View>
 
-      {/* ✅ تفاصيل أو تقييم */}
+     
       {activeTab === 'details' ? (
         <Text style={styles.detailsText}>{product.description}</Text>
       ) : (

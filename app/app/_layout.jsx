@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { useEffect } from 'react';
+import { FontAwesome } from '@expo/vector-icons';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import 'react-native-reanimated';
-
 import { useColorScheme } from '../components/useColorScheme';
+import { Stack } from 'expo-router';
+// import { auth } from '../../firebase/config';
+// import { useRouter } from 'expo-router';
+
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -22,6 +23,22 @@ export const unstable_settings = {
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  
+  //this part so that it checks the login of the user which we dont need since we are an e-commerce so users can see shop without needing to sign in
+  // const router = useRouter();
+  // useEffect(() => {
+  //   const unsubscribe = auth.onAuthStateChanged(user => {
+  //     if (user) {
+  //       router.push('/(drawer)/(tabs)/index');
+  //     }
+  //     else{
+  //       router.push('/login');
+  //     }
+  //   });
+
+  //   return unsubscribe;
+  // }, []);
+  
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
     ...FontAwesome.font,
@@ -50,10 +67,10 @@ function RootLayoutNav() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="cart" options={{ animation:'slide_from_right' }} />
+      <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="(drawer)" />
     </Stack>
+     
   </ThemeProvider>
   );
 }

@@ -3,7 +3,7 @@ const tintColorDark = '#fff';
 
 export default {
   light: {
-    text: 'white',
+    text: 'black', //changes the icons color
     background: '#fff',
     tint: tintColorLight,
     tabIconDefault: '#ccc',

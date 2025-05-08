@@ -6,6 +6,7 @@ import lab3 from '../assets/images/lab3.png';
 import lab4 from '../assets/images/lab4.png';
 import lab5 from '../assets/images/lab5.png';
 import productsData from '../products.json';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 const imageMap = {
   lab1,
@@ -47,24 +48,24 @@ const Products = () => {
 
 const styles = StyleSheet.create({
     productItem: {
-        backgroundColor:'#2C3E50',
-        borderRadius: 8,
-        padding: 15,
-        marginBottom: 15,
+        backgroundColor:'rgb(110, 137, 255)', 
+        borderRadius: 20,
+        padding: 10,
+        marginBottom:10,
       },
       productImage: {
-        width: 120,
-        height: 120,
+        width: wp('50%'), 
+        height: hp('20%'), 
         marginRight: 10,
       },
       productName: {
         fontSize: 18,
         fontWeight: 'bold',
-        color:'white'
+        color:'rgb(0, 0, 0)'
       },
       productDescription: {
         fontSize: 20,
-        color: '#BED754',
+        color: 'white',
       },
 });
 

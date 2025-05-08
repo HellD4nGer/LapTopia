@@ -5,6 +5,7 @@ import productsData from '../../../products.json';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import LottieView from 'lottie-react-native';
+import {UploadProducts} from '../../../firebase/products'
 
 
 const SearchProducts = () => {
@@ -16,6 +17,7 @@ const SearchProducts = () => {
 
 
   useEffect(() => {
+    
     // Map the image names to actual imports
     const mappedProducts = productsData.map(product => ({
       ...product,
@@ -38,7 +40,7 @@ const SearchProducts = () => {
         )
       : [];
       setfilteredProducts(filtered);
-    }, 2420);
+    }, 2100);
 
     };
 

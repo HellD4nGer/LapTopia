@@ -27,7 +27,7 @@ const Login = () => {
       router.push("/");
     } catch (error) {
       Alert.alert("failed", error.message);
-      console.log("check your email and password");
+      console.log("Invalid email or password");
     }
   };
 

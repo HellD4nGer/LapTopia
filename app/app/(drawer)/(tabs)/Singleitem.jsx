@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
-import React from 'react';
-import { useLocalSearchParams } from 'expo-router';  
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { useLocalSearchParams } from 'expo-router';
+import { FontAwesome } from '@expo/vector-icons';
 import productsData from '../../../products.json';
 import lab1 from '../../../assets/images/lab1.png';
 import lab2 from '../../../assets/images/lab2.png';
@@ -17,8 +18,11 @@ const imageMap = {
 };
 
 export default function Single_item() {
-  const { id } = useLocalSearchParams();  
+  const { id } = useLocalSearchParams();
   const product = productsData.find(item => item.id === id);
+  const [rating, setRating] = useState(4.2);
+  const [activeTab, setActiveTab] = useState('details');
+  const [selectedRating, setSelectedRating] = useState(0);
 
   if (!product) {
     return (
@@ -28,11 +32,72 @@ export default function Single_item() {
     );
   }
 
+  const handleRatingSelect = (star) => {
+    setSelectedRating(star);
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Image source={imageMap[product.image]} style={styles.image} />
       <Text style={styles.name}>{product.name}</Text>
-      <Text style={styles.description}>{product.description}</Text>
+      <View style={styles.frameWithTitle}>
+        <Image source={imageMap[product.image]} style={styles.productImage} />
+      </View>
+
+      <Text style={styles.availability}>Available</Text>
+
+      <View style={styles.ratingPriceContainer}>
+        <View style={styles.ratingContainer}>
+          {[1, 2, 3, 4, 5].map((star) => (
+            <FontAwesome
+              key={star}
+              name={star <= Math.floor(rating) ? 'star' : 'star-o'}
+              size={20}
+              color={star <= Math.ceil(rating) ? '#FFA500' : '#CCCCCC'}
+            />
+          ))}
+          <Text style={styles.ratingText}>{rating.toFixed(1)}</Text>
+        </View>
+        <Text style={styles.price}>EGP {product.price || 15000}</Text>
+      </View>
+
+      {/* ✅ التبويبات */}
+      <View style={styles.tabsContainer}>
+        <TouchableOpacity onPress={() => setActiveTab('details')}>
+          <Text style={[styles.tab, activeTab === 'details' && styles.activeTab]}>Details</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => setActiveTab('review')}>
+          <Text style={[styles.tab, activeTab === 'review' && styles.activeTab]}>Review</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* ✅ تفاصيل أو تقييم */}
+      {activeTab === 'details' ? (
+        <Text style={styles.detailsText}>{product.description}</Text>
+      ) : (
+        <View style={styles.reviewContainer}>
+          <Text style={styles.reviewTitle}>Rate this Product</Text>
+          <View style={styles.starsContainer}>
+            {[1, 2, 3, 4, 5].map((star) => (
+              <TouchableOpacity key={star} onPress={() => handleRatingSelect(star)}>
+                <FontAwesome
+                  name={star <= selectedRating ? 'star' : 'star-o'}
+                  size={40}
+                  color={star <= selectedRating ? '#FFA500' : '#CCCCCC'}
+                  style={styles.selectableStar}
+                />
+              </TouchableOpacity>
+            ))}
+          </View>
+          <Text style={styles.selectedRatingText}>
+            {selectedRating > 0 ? `You selected ${selectedRating} star${selectedRating > 1 ? 's' : ''}` : 'Select a rating'}
+          </Text>
+        </View>
+      )}
+
+      <TouchableOpacity style={styles.addToCartButton}>
+        <FontAwesome name="shopping-cart" size={20} color="#FFF" style={styles.cartIcon} />
+        <Text style={styles.addToCartText}>Add to Cart</Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 }
@@ -40,37 +105,123 @@ export default function Single_item() {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#FBFBFB',
     alignItems: 'center',
+    minHeight: '100%',
   },
-  image: {
-    width: 300,
-    height: 300,
+  frameWithTitle: {
+    width: 250,
+    height: 250,
+    borderRadius: 10,
+    borderWidth: 0.6,
+    borderColor: '#3B1E54',
+    justifyContent: 'center',
+    alignItems: 'center',
     marginBottom: 20,
+    marginTop: 20,
+  },
+  productImage: {
+    width: 200,
+    height: 200,
     borderRadius: 15,
   },
   name: {
-    fontSize: 28,
+    fontSize: 20,
     fontWeight: 'bold',
+    color: 'black',
     marginBottom: 15,
     textAlign: 'center',
-    color: 'black',
   },
-  description: {
+  availability: {
+    fontSize: 18,
+    color: 'green',
+    marginBottom: 10,
+  },
+  ratingPriceContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '90%',
+    marginBottom: 20,
+  },
+  ratingContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  ratingText: {
     fontSize: 18,
     color: '#555',
-    textAlign: 'center',
-    marginBottom: 15,
+    marginLeft: 8,
   },
-  errorContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'black',
-  },
-  errorText: {
-    color: 'red',
-    fontSize: 24,
+  price: {
+    fontSize: 22,
     fontWeight: 'bold',
+    color: '#3B1E54',
+  },
+  tabsContainer: {
+    flexDirection: 'row',
+    marginBottom: 15,
+    width: '90%',
+    justifyContent: 'flex-start',
+  },
+  tab: {
+    fontSize: 18,
+    color: '#AAA',
+    marginRight: 20,
+    fontWeight: 'bold',
+  },
+  activeTab: {
+    color: '#7743DB',
+    textDecorationLine: 'underline',
+  },
+  detailsText: {
+    fontSize: 16,
+    color: '#555',
+    textAlign: 'left',
+    width: '90%',
+    lineHeight: 24,
+    marginBottom: 20,
+  },
+  reviewContainer: {
+    width: '100%',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  reviewTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    color: '#3B1E54',
+  },
+  starsContainer: {
+    flexDirection: 'row',
+    marginBottom: 10,
+  },
+  selectableStar: {
+    marginHorizontal: 5,
+  },
+  selectedRatingText: {
+    fontSize: 18,
+    color: '#555',
+    marginBottom: 20,
+  },
+  addToCartButton: {
+    flexDirection: 'row',
+    backgroundColor: '#804FB3',
+    borderRadius: 30,
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    marginTop: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  addToCartText: {
+    fontSize: 20,
+    color: '#FFF',
+    marginLeft: 10,
+    fontWeight: 'bold',
+  },
+  cartIcon: {
+    marginRight: 5,
   },
 });

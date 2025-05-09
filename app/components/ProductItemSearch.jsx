@@ -1,6 +1,6 @@
-import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
 
 //this component is what is being displayed in the search page
 const lab1 = require('../assets/images/lab1.png');
@@ -16,6 +16,7 @@ const imageMap = {
   lab4,
   lab5,
 };
+
 
 const ProductItem = ({ name, description, image }) => (
 

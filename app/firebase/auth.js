@@ -41,7 +41,6 @@ async function register(email, password, name, phone) {
     phone: phone,
     password: password,
   });
-
   return cred;
 }
 

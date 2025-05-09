@@ -1,88 +1,100 @@
 [
-    {
-        "id": "1",
-        "name": "Product 1",
-        "description": "This is the description for Product 1.",
-        "image": "lab1"
-      },
-    {
-        "id": "2",
-        "name": "Product 2",
-        "description": "This is the description for Product 2.",
-        "image": "lab2"
-      },
-    {
-        "id": "3",
-        "name": "Product 3",
-        "description": "This is the description for Product 3.",
-        "image": "lab3"
-      },
-      {
-        "id": "4",
-        "name": "Product 4",
-        "description": "This is the description for Product 4.",
-        "image": "lab4"
-      },
-    {
-        "id": "5",
-        "name": "Product 5",
-        "description": "This is the description for Product 5.",
-        "image": "lab5"
-      },
-
-    {
-        "id": "6",
-        "name": "Product 6",
-        "description": "This is the description for Product 6.",
-        "image": "lab1"
-      },
-
-    {
-        "id": "7",
-        "name": "Product 7",
-        "description": "This is the description for Product 7.",
-        "image": "lab2"
-      },
-      {
-        "id": "8",
-        "name": "lemon",
-        "description": "This is the description for Product 8.",
-        "image": "lab5"
-      },
-      {
-        "id": "9",
-        "name": "mango",
-        "description": "This is the description for Product 9.",
-        "image": "lab4"
-      },
-      {
-        "id": "10",
-        "name": "apple",
-        "description": "This is the description for Product 10.",
-        "image": "lab3"
-      },
-      {
-        "id": "11",
-        "name": "PinaColaDa",
-        "description": "This is the description for Product 11.",
-        "image": "lab2"
-      },
-      {
-        "id": "12",
-        "name": "SenaCola",
-        "description": "This is the description for Product 12.",
-        "image": "lab5"
-      },
-      {
-        "id": "13",
-        "name": "Youssef-Abdelwahab 10LE",
-        "description": "This is the description for Product 13.",
-        "image": "lab1"
-      },
-      {
-        "id": "14",
-        "name": "JustYoussef 10millionLE",
-        "description": "This is the description for Product 14.",
-        "image": "lab4"
-      }
-  ]
+  {
+      "id": "1",
+      "name": "SAMSUNG 16 Galaxy Book4 Pro Business Laptop",
+      "description": "Intel Core 7 Ultra 155H / 32GB / 1TB, 3K AMOLED Touchscreen, 2024 Model, NP964XGK-KG1US, Moonstone Gray",
+      "image": "lab1",
+      "price": "90000"
+  },
+  {
+      "id": "2",
+      "name": "Product 2",
+      "description": "This is the description for Product 2.",
+      "image": "lab2",
+      "price": "15000"
+  },
+  {
+      "id": "3",
+      "name": "Product 3",
+      "description": "This is the description for Product 3.",
+      "image": "lab3",
+      "price": "17000"
+  },
+  {
+      "id": "4",
+      "name": "Product 4",
+      "description": "This is the description for Product 4.",
+      "image": "lab4",
+      "price": "20000"
+  },
+  {
+      "id": "5",
+      "name": "Product 5",
+      "description": "This is the description for Product 5.",
+      "image": "lab5",
+      "price": "13000"
+  },
+  {
+      "id": "6",
+      "name": "Product 6",
+      "description": "This is the description for Product 6.",
+      "image": "lab1",
+      "price": "18000"
+  },
+  {
+      "id": "7",
+      "name": "Product 7",
+      "description": "This is the description for Product 7.",
+      "image": "lab2",
+      "price": "21000"
+  },
+  {
+      "id": "8",
+      "name": "lemon",
+      "description": "This is the description for Product 8.",
+      "image": "lab5",
+      "price": "14000"
+  },
+  {
+      "id": "9",
+      "name": "mango",
+      "description": "This is the description for Product 9.",
+      "image": "lab4",
+      "price": "16000"
+  },
+  {
+      "id": "10",
+      "name": "apple",
+      "description": "This is the description for Product 10.",
+      "image": "lab3",
+      "price": "12000"
+  },
+  {
+      "id": "11",
+      "name": "PinaColaDa",
+      "description": "This is the description for Product 11.",
+      "image": "lab2",
+      "price": "25000"
+  },
+  {
+      "id": "12",
+      "name": "SenaCola",
+      "description": "This is the description for Product 12.",
+      "image": "lab5",
+      "price": "23000"
+  },
+  {
+      "id": "13",
+      "name": "Youssef-Abdelwahab 10LE",
+      "description": "This is the description for Product 13.",
+      "image": "lab1",
+      "price": "10000000"
+  },
+  {
+      "id": "14",
+      "name": "JustYoussef 10millionLE",
+      "description": "This is the description for Product 14.",
+      "image": "lab4",
+      "price": "10000000"
+  }
+]

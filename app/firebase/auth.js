@@ -1,4 +1,4 @@
-import { auth ,authentication} from "./Config";
+import { auth ,authentication} from "./config";
 import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -13,7 +13,7 @@ import {
   
 } from "@firebase/auth";
 
-import { db } from "./Config";
+import { db } from "./config";
 import { collection } from "@firebase/firestore";
 import {setDoc, doc, getDoc ,updateDoc } from "@firebase/firestore"
 
@@ -46,6 +46,7 @@ async function register(email, password, name, phone) {
 }
 
 async function login(email, password) {
+
   await signInWithEmailAndPassword(auth, email, password);
 }
 async function forgetPassword(email) {

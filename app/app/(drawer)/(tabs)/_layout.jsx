@@ -8,8 +8,7 @@ import { useClientOnlyValue } from '../../../components/useClientOnlyValue.js';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import logopic from "../../../assets/images/logo5.png";
 import * as NavigationBar from 'expo-navigation-bar';
-import Login from '../login.jsx';
-import Signup from '../signup.jsx';
+
 
 
 
@@ -119,31 +118,8 @@ export default function TabLayout() {
           headerShown:false,
         }}
       />
-      <Tabs.Screen
-        name="Login"
-        options={{
-          title: 'Login',
-          tabBarIcon: ({ color }) => <TabBarIcon name="arrow-right-to-bracket" color={color} />,
-          headerStyle: {
-            backgroundColor: '#191919',
-            borderBottomWidth: 0,
-          },
-          headerTintColor: '#FFF',
-        }}
-      />
-      <Tabs.Screen
-        name="Signup"
-        options={{
-          title: 'Signup',
-          tabBarIcon: ({ color }) => <TabBarIcon name="log-out" color={color} />,
-          headerStyle: {
-            backgroundColor: '#191919',
-            borderBottomWidth: 0,
-          },
-          headerTintColor: '#FFF',
-        }}
-        
-      />
+     
+  
       
     </Tabs>
 

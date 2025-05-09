@@ -4,7 +4,7 @@ import { Drawer } from 'expo-router/drawer';
 import { Link} from 'expo-router';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import { useRouter, useSegments } from 'expo-router';
-import { auth } from '../../firebase/config';
+import { auth } from '../../firebase/config'; 
 import { cleanupFirestore } from '../../firebase/config';
 
 
@@ -141,6 +141,13 @@ export default function Drawerlayout() {
       options={{
         headerShown: true,
         title: 'Login',
+      }}
+    />
+    <Drawer.Screen
+      name="AddProduct"
+      options={{
+        headerShown: true,
+        title: 'Add Product',
       }}
     />
 

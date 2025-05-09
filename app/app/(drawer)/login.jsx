@@ -59,7 +59,7 @@ const Login = () => {
 
         <Pressable
           style={styles.link}
-          onPress={() => router.push("./ForgetPassword")}
+          onPress={() => router.push("./forgetpassword")}
         >
           <Text style={styles.linkText}>Forget Password</Text>
         </Pressable>

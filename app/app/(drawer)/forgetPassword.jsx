@@ -10,12 +10,12 @@ import {
   } from "react-native";
   import React, { useState } from "react";
   import { useRouter } from "expo-router";
-  import logo from "../assets/images/logo5.png";
+  import logo from "../../assets/images/expo-logo.png";
   import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
   } from "react-native-responsive-screen";
-  import { forgetPassword } from "../firebase/auth";
+  import { forgetPassword } from "../../firebase/auth";
   
   const ForgetPassword = () => {
     const router = useRouter();

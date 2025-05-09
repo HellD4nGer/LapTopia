@@ -1,100 +1,100 @@
 [
-  {
+    {
       "id": "1",
-      "name": "SAMSUNG 16 Galaxy Book4 Pro Business Laptop",
-      "description": "Intel Core 7 Ultra 155H / 32GB / 1TB, 3K AMOLED Touchscreen, 2024 Model, NP964XGK-KG1US, Moonstone Gray",
+      "name": "Dell XPS 15 (2024 Edition)",
+      "description": "Premium laptop with 12th Gen Intel Core i7-12700H, 16GB DDR5 RAM, 1TB NVMe SSD, 15.6\" 4K UHD+ touch display, NVIDIA GeForce RTX 3050 Ti, Windows 11 Pro, aluminum chassis.",
       "image": "lab1",
-      "price": "90000"
-  },
-  {
+      "price": "48999"
+    },
+    {
       "id": "2",
-      "name": "Product 2",
-      "description": "This is the description for Product 2.",
+      "name": "HP Envy 13t Slim",
+      "description": "Ultra-portable: AMD Ryzen 7 5825U, 16GB RAM, 512GB SSD, 13.3\" FHD IPS touchscreen, Windows 11 Home, 14h battery life. Weighs 1.3kg.",
       "image": "lab2",
-      "price": "15000"
-  },
-  {
+      "price": "34500"
+    },
+    {
       "id": "3",
-      "name": "Product 3",
-      "description": "This is the description for Product 3.",
+      "name": "Lenovo ThinkPad X1 Carbon",
+      "description": "Business laptop: Intel Core i5-1240P, 16GB RAM, 512GB SSD, 14\" WUXGA (1920x1200) IPS anti-glare, MIL-STD-810H certified, Windows 11 Pro.",
       "image": "lab3",
-      "price": "17000"
-  },
-  {
+      "price": "42750"
+    },
+    {
       "id": "4",
-      "name": "Product 4",
-      "description": "This is the description for Product 4.",
+      "name": "Asus ROG Zephyrus G14",
+      "description": "Gaming beast: AMD Ryzen 9 6900HS, 16GB DDR5, 1TB SSD, 14\" QHD 120Hz display, NVIDIA RTX 3060, RGB keyboard, Windows 11 Home.",
       "image": "lab4",
-      "price": "20000"
-  },
-  {
+      "price": "49500"
+    },
+    {
       "id": "5",
-      "name": "Product 5",
-      "description": "This is the description for Product 5.",
+      "name": "Acer Swift 3 OLED",
+      "description": "Budget-friendly: Intel Core i5-1235U, 8GB RAM, 512GB SSD, 14\" 2.8K OLED display, fingerprint reader, Windows 11 Home.",
       "image": "lab5",
-      "price": "13000"
-  },
-  {
+      "price": "24999"
+    },
+    {
       "id": "6",
-      "name": "Product 6",
-      "description": "This is the description for Product 6.",
+      "name": "Microsoft Surface Laptop 5",
+      "description": "Sleek design: 13.5\" PixelSense touchscreen, Intel Core i7-1255U, 16GB RAM, 512GB SSD, Alcantara keyboard, Windows 11 Pro.",
       "image": "lab1",
-      "price": "18000"
-  },
-  {
+      "price": "45000"
+    },
+    {
       "id": "7",
-      "name": "Product 7",
-      "description": "This is the description for Product 7.",
+      "name": "Apple MacBook Air M2",
+      "description": "2023 model: Apple M2 chip, 8-core CPU, 8GB RAM, 512GB SSD, 13.6\" Liquid Retina display, macOS Ventura, 18h battery.",
       "image": "lab2",
-      "price": "21000"
-  },
-  {
+      "price": "49999"
+    },
+    {
       "id": "8",
-      "name": "lemon",
-      "description": "This is the description for Product 8.",
-      "image": "lab5",
-      "price": "14000"
-  },
-  {
-      "id": "9",
-      "name": "mango",
-      "description": "This is the description for Product 9.",
-      "image": "lab4",
-      "price": "16000"
-  },
-  {
-      "id": "10",
-      "name": "apple",
-      "description": "This is the description for Product 10.",
+      "name": "MSI Katana GF66",
+      "description": "Entry gaming: Intel Core i5-11400H, 8GB RAM, 512GB SSD + 1TB HDD, 15.6\" FHD 144Hz, NVIDIA RTX 3050, RGB keyboard.",
       "image": "lab3",
-      "price": "12000"
-  },
-  {
-      "id": "11",
-      "name": "PinaColaDa",
-      "description": "This is the description for Product 11.",
-      "image": "lab2",
-      "price": "25000"
-  },
-  {
-      "id": "12",
-      "name": "SenaCola",
-      "description": "This is the description for Product 12.",
-      "image": "lab5",
-      "price": "23000"
-  },
-  {
-      "id": "13",
-      "name": "Youssef-Abdelwahab 10LE",
-      "description": "This is the description for Product 13.",
-      "image": "lab1",
-      "price": "10000000"
-  },
-  {
-      "id": "14",
-      "name": "JustYoussef 10millionLE",
-      "description": "This is the description for Product 14.",
+      "price": "37900"
+    },
+    {
+      "id": "9",
+      "name": "Samsung Galaxy Book2 Pro",
+      "description": "Super lightweight: 13.3\" AMOLED display, Intel Core i7-1260P, 16GB RAM, 1TB SSD, Windows 11 Home, 0.87kg weight.",
       "image": "lab4",
-      "price": "10000000"
-  }
-]
+      "price": "46800"
+    },
+    {
+      "id": "10",
+      "name": "Lenovo Yoga Slim 7i Pro",
+      "description": "2-in-1 convertible: 14\" 2.8K 90Hz touchscreen, Intel Core i5-11320H, 8GB RAM, 512GB SSD, Active Pen support, Windows 11.",
+      "image": "lab5",
+      "price": "33450"
+    },
+    {
+      "id": "11",
+      "name": "HP Victus 16-d1000",
+      "description": "Mid-range gaming: AMD Ryzen 5 5600H, 8GB RAM, 512GB SSD, 16.1\" FHD 144Hz, NVIDIA GTX 1650, Backlit keyboard.",
+      "image": "lab1",
+      "price": "28999"
+    },
+    {
+      "id": "12",
+      "name": "Dell Inspiron 14 5420",
+      "description": "Student favorite: Intel Core i3-1215U, 8GB RAM, 256GB SSD, 14\" FHD anti-glare, Windows 11 Home, 10h battery life.",
+      "image": "lab2",
+      "price": "15999"
+    },
+    {
+      "id": "13",
+      "name": "Acer Chromebook Spin 514",
+      "description": "Education focus: AMD Ryzen 3 3250C, 4GB RAM, 128GB eMMC, 14\" FHD touchscreen, Chrome OS, 360° hinge.",
+      "image": "lab3",
+      "price": "11999"
+    },
+    {
+      "id": "14",
+      "name": "Asus Vivobook S14 Flip",
+      "description": "Value convertible: Intel Core i5-1155G7, 8GB RAM, 512GB SSD, 14\" FHD touchscreen, Stylus support, Windows 11 Home.",
+      "image": "lab4",
+      "price": "27450"
+    }
+  ]

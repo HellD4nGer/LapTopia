@@ -108,6 +108,15 @@ export default function Drawerlayout() {
         </TouchableOpacity> 
 
         <TouchableOpacity
+          onPress={() => router.push('/(drawer)/AddProduct')}
+          style={{ padding: 19 }}
+        >
+          <Ionicons name="add" size={48} color="#666" />
+          <Text>Add product</Text>
+        </TouchableOpacity> 
+
+
+        <TouchableOpacity
             style={{ flexDirection: 'row', alignItems: 'center', padding: 15, marginTop: 20 }}
             onPress={handleSignOut}
           >
@@ -143,13 +152,7 @@ export default function Drawerlayout() {
         title: 'Login',
       }}
     />
-    <Drawer.Screen
-      name="AddProduct"
-      options={{
-        headerShown: true,
-        title: 'Add Product',
-      }}
-    />
+    
 
 
     {/* we have a highlight problem in the drawer that after selecting a tab inside tabs

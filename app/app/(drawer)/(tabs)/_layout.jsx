@@ -73,7 +73,16 @@ export default function TabLayout() {
           headerShown:false, //to hide the Header Product from the top left
           title: 'Products',
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
-          
+          headerStyle: {
+            backgroundColor: '#FFFFFF',
+            borderBottomWidth: 0,
+          },
+          headerTintColor: 'black',
+          headerShown:false,
+          tabBarItemStyle: {
+            marginLeft: wp('7%'), // Pushes to the right
+            flex: 0, // Preuces automatic width expansion
+          },
         }}
       />
 
@@ -85,10 +94,15 @@ export default function TabLayout() {
         tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,
         headerStyle: {
           backgroundColor: 'rgb(0, 176, 252)',
-          borderBottomWidth: 0, // Set the background color for the header
+      
         },
         headerTintColor: 'black',
         headerShown:false,
+        tabBarItemStyle: {
+          marginLeft: wp('10%'), 
+          flex: 0, 
+        
+        },
       }}
     />
     <Tabs.Screen
@@ -102,26 +116,34 @@ export default function TabLayout() {
           },
           headerTintColor: 'black',
           headerShown:false,
-        }}
-      />
-      <Tabs.Screen
-        name="About"
-        options={{
-          title: 'About',
-          tabBarIcon: ({ color }) => <TabBarIcon name="info-circle" color={color} />,
-          headerStyle: {
-            backgroundColor: 'rgb(4, 8, 10)', //changes top bar color
-            borderBottomWidth: 0,
+          tabBarItemStyle: {
+            marginLeft: wp('15%'),
+            flex: 0, 
+           
           },
-          headerTintColor: 'black',
-          headerShown:false,
         }}
       />
-           <Tabs.Screen
-          name="Singleitem"
-          options={{
-            headerShown: false,
-            title: 'Product Details',
+    <Tabs.Screen
+    name="About"
+    options={{
+      title: 'About',
+      tabBarIcon: ({ color }) => <TabBarIcon name="info-circle" color={color} />,
+      headerStyle: { backgroundColor: 'rgb(4, 8, 10)', borderBottomWidth: 0 },
+      headerTintColor: 'black',
+      headerShown: false,
+      tabBarItemStyle: {
+        marginLeft: wp('14%'),
+        flex: 0, 
+        
+      },
+    }}
+  />
+  <Tabs.Screen
+  name="Singleitem"
+  options={{
+      headerShown: false,
+        title: 'Product Details',
+        tabBarButton: () => null,
           }}
         />
       

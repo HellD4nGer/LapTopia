@@ -117,6 +117,14 @@ export default function TabLayout() {
           headerShown:false,
         }}
       />
+           <Tabs.Screen
+          name="Singleitem"
+          options={{
+            headerShown: false,
+            title: 'Product Details',
+          }}
+        />
+      
     </Tabs>
 
    

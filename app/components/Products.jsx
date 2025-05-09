@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import { View, Text, Image, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { Link } from 'expo-router';
 import {getProducts} from '../firebase/products'
 import { useRouter } from 'expo-router';
-
 
 const imageMap = {
   lab1: require('../assets/images/lab1.png'),
@@ -19,23 +17,6 @@ const ProductItem = ({ id, name, description, image, item }) => {
   const router = useRouter();
   return(
   <View>
-    
-    {/* <Link href={`/product/${id}`} asChild>
-      <Pressable style={({ pressed }) => [
-        styles.productItem,
-        { opacity: pressed ? 0.5 : 1 }
-      ]}>
-        <>
-          <Image 
-            source={imageMap[image]} 
-            style={styles.productImage} 
-          />
-          <Text style={styles.productName}>{name}</Text>
-          <Text style={styles.productDescription}>{description}</Text>
-        </>
-      </Pressable>
-    </Link> */}
-
      <TouchableOpacity onPress={() => router.push("/(drawer)/(tabs)/Singleitem?id=" + id)}>
       <View style={styles.productItem}>
         <Image source={imageMap[image]} style={styles.productImage} />

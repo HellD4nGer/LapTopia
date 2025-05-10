@@ -8,7 +8,7 @@ import {
   ScrollView,
   Alert,
 } from "react-native";
-import React, { useState, useEffect, } from "react";
+import React, { useState, useEffect, useContext, } from "react";
 import { useRouter } from "expo-router";
 import logo from "../../assets/images/logo5.png";
 import {
@@ -16,7 +16,7 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { login } from "../../firebase/auth";
-
+import { UserContext } from '../../components/UserContext';
 
 
 const Login = () => {
@@ -24,7 +24,7 @@ const Login = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+ const { setIsLoggedIn } = useContext(UserContext);
   
   const handleLogin = async () => {
     try {

@@ -39,7 +39,28 @@ function CustomHeaderTitle() {
 
 export default function Drawerlayout() {
 
-const { isAdmin } = useContext(UserContext);
+// const { isAdmin } = useContext(UserContext);
+  const [userData, setUserData] = useState();
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const userData = await getUserById();
+          if (!userData) {
+            console.error("User data not found, cannot post comment.");
+            return;
+          }
+          setUserData(userData);
+          setIsAdmin(userData.isAdmin || false);
+          console.log("userData1", userData);
+        } catch (error) {
+          console.log("Error fetching user data:", error);
+        }
+      };
+      fetchData();
+    }, [isLoggedIn]);
 
   const router = useRouter();
 
@@ -58,7 +79,7 @@ const { isAdmin } = useContext(UserContext);
   };
 
   return (
- 
+      <UserContext.Provider value={{ isAdmin, userData }}>
     <Drawer
     screenOptions={{
       title:'Home',
@@ -162,5 +183,7 @@ const { isAdmin } = useContext(UserContext);
     
 
     </Drawer>
+      </UserContext.Provider>
   );
+
 }

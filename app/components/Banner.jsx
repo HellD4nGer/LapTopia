@@ -24,46 +24,37 @@ const Banner = () => {
       activeDot={<View style={[styles.paginationDot, styles.activePaginationDot]} />}
       paginationStyle={styles.paginationContainer}
     >
+    
       {bannerImages.map((item) => (
         <View key={item.id} style={styles.slide}>
           <Image source={item.image} style={styles.image} />
-          <Text style={styles.bannerText}>{item.text}</Text>
         </View>
       ))}
+  
     </Swiper>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+
   wrapper: {
     // This is the container for the Swiper
-    height: hp('39%'), 
+  // backgroundColor:'rgb(255, 255, 255)',
+      height: hp('39%'), 
   },
   slide: {
     // This is the style for each slide
-    flex: 1,
+    
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'rgb(255, 255, 255)', //old color rgb(16, 151, 241)
+    backgroundColor:'rgb(250, 210, 31)', //old color rgb(16, 151, 241)
+    borderRadius: 50,
+    margin:7,
   },
   image: {
     width: wp('90%'), 
     height: hp('38%'), 
-   
-  },
-  bannerText: {
-    position: 'absolute',
-    bottom: 20,
-    left: 20,
-    color: 'white',
-    fontSize: 24,
-    fontWeight: 'bold',
-    textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 5,
+    
   },
   paginationContainer: {
     // Style for the pagination container
@@ -76,7 +67,7 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 20,
-    backgroundColor: 'rgb(255, 255, 255)',
+    backgroundColor: 'rgb(173, 171, 171)',
     marginHorizontal: 7, 
   },
   activePaginationDot: {

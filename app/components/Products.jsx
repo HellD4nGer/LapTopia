@@ -16,7 +16,7 @@ const imageMap = {
 const ProductItem = ({ id, name, description, image, item }) => {
   const router = useRouter();
   return(
-  <View>
+  <View style={styles.container}>
      <TouchableOpacity onPress={() => router.push("/(drawer)/(tabs)/Singleitem?id=" + id)}>
       <View style={styles.productItem}>
         <Image source={imageMap[image]} style={styles.productImage} />
@@ -54,7 +54,7 @@ const Products = () => {
           key={item.id} 
           id={item.id}
           name={item.name}
-          description={item.description}
+          //description={item.description}
           image={item.image}
         />
       ))}
@@ -63,16 +63,21 @@ const Products = () => {
 };
 
 const styles = StyleSheet.create({
+  container:{
+    flex:1,
+    padding:10,
+    //backgroundColor:'rgb(223, 227, 248)',
+
+  },
   productItem: {
-    backgroundColor:'rgb(110, 137, 255)', 
-    borderRadius: 20,
+    backgroundColor:'rgba(0, 255, 221, 0.38)', 
+    borderRadius: 15,
     padding: 10,
-    marginBottom:10,
   },
   productImage: {
     width: wp('50%'), 
     height: hp('20%'), 
-    marginRight: 10,
+    // marginRight: 10,
   },
   productName: {
     fontSize: 18,

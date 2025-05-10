@@ -8,6 +8,7 @@ import lab2 from '../../../assets/images/lab2.png';
 import lab3 from '../../../assets/images/lab3.png';
 import lab4 from '../../../assets/images/lab4.png';
 import lab5 from '../../../assets/images/lab5.png';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const imageMap = {
   lab1,
@@ -31,7 +32,19 @@ export default function Single_item() {
       </View>
     );
   }
-
+const handleAddToCart = () => {
+   const cartItem = {
+     id: product.id,
+     name: product.name,
+     price: product.price,
+     quantity: 1,
+   };
+   AsyncStorage.getItem("CartItems").then((storedItems) => {
+     const items = storedItems ? JSON.parse(storedItems) : [];
+     items.push(cartItem);
+     AsyncStorage.setItem("CartItems", JSON.stringify(items));
+   });
+  };
   const handleRatingSelect = (star) => {
     setSelectedRating(star);
   };
@@ -94,7 +107,7 @@ export default function Single_item() {
         </View>
       )}
 
-      <TouchableOpacity style={styles.addToCartButton}>
+      <TouchableOpacity style={styles.addToCartButton} onPress={handleAddToCart} >
         <FontAwesome name="shopping-cart" size={20} color="#FFF" style={styles.cartIcon} />
         <Text style={styles.addToCartText}>Add to Cart</Text>
       </TouchableOpacity>

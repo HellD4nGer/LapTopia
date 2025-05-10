@@ -21,10 +21,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 
-export const auth = initializeAuth(app, {
-  persistence: getReactNativePersistence(AsyncStorage),
-});
+// export const auth = initializeAuth(app, {
+//   persistence: getReactNativePersistence(AsyncStorage),
+// });
 
+export const auth = initializeAuth(app);
 
 // Firestore Configuration (Modified)
 export const db = initializeFirestore(app, {

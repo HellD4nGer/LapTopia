@@ -4,12 +4,40 @@ import Banner from '../../../components/Banner';
 import LottieView from 'lottie-react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import TypingAnimation from '../../../components/TypingAnimation';
+import { UserContext } from '../../../components/UserContext';
+import {getUserById} from '../../../firebase/auth';
+import { useEffect, useState } from 'react';
+
+
 
 
 
 export default function Home() {
+
+  const [userData, setUserData] = useState();
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const userData = await getUserById();
+          if (!userData) {
+            console.error("User data not found, cannot post comment.");
+            return;
+          }
+          setUserData(userData);
+          setIsAdmin(userData.isAdmin || false);
+          console.log("userData1", userData);
+        } catch (error) {
+          console.log("Error fetching user data:", error);
+        }
+      };
+      fetchData();
+    }, [isLoggedIn]);
+
   return (
-    
+      <UserContext.Provider value={{ isAdmin, userData }}>
     <ScrollView contentContainerStyle={styles.contentContainer}>
 
        <View style={styles.container}>
@@ -28,6 +56,7 @@ export default function Home() {
         <Banner />
         <Products />
     </ScrollView>
+    </UserContext.Provider>
   );
 }
 

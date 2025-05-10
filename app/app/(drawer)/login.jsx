@@ -8,7 +8,7 @@ import {
   ScrollView,
   Alert,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect, } from "react";
 import { useRouter } from "expo-router";
 import logo from "../../assets/images/logo5.png";
 import {
@@ -17,10 +17,15 @@ import {
 } from "react-native-responsive-screen";
 import { login } from "../../firebase/auth";
 
+
+
 const Login = () => {
+  
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  
   const handleLogin = async () => {
     try {
       await login(email, password);
@@ -30,6 +35,7 @@ const Login = () => {
       console.log("Invalid email or password");
     }
   };
+      
 
   return (
     <ScrollView style={{backgroundColor: 'rgb(25, 25, 26)'}} >

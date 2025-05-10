@@ -4,8 +4,10 @@ import { Drawer } from 'expo-router/drawer';
 import { Link} from 'expo-router';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import { useRouter, useSegments } from 'expo-router';
-import { auth } from '../../firebase/config';
-import { cleanupFirestore } from '../../firebase/config';
+import { auth } from '../../firebase/config'; 
+import { useContext, useEffect, useState } from 'react';
+import {getUserById} from '../../firebase/auth';
+import { UserContext } from '../../components/UserContext';
 
 
 
@@ -36,6 +38,8 @@ function CustomHeaderTitle() {
 
 
 export default function Drawerlayout() {
+
+const { isAdmin } = useContext(UserContext);
 
   const router = useRouter();
 
@@ -107,6 +111,18 @@ export default function Drawerlayout() {
           <Text>Login</Text>
         </TouchableOpacity> 
 
+      <>
+        {isAdmin &&(
+        <TouchableOpacity
+          onPress={() => router.push('/(drawer)/AddProduct')}
+          style={{ padding: 19 }}
+        >
+          <Ionicons name="add" size={48} color="#666" />
+          <Text>Add product</Text>
+        </TouchableOpacity> 
+  )}
+  </>
+
         <TouchableOpacity
             style={{ flexDirection: 'row', alignItems: 'center', padding: 15, marginTop: 20 }}
             onPress={handleSignOut}
@@ -143,17 +159,7 @@ export default function Drawerlayout() {
         title: 'Login',
       }}
     />
-
-
-    {/* we have a highlight problem in the drawer that after selecting a tab inside tabs
-    the drawer still think we are in the home and will only highlight home 
-    <Drawer.Screen
-      name="AboutWrapper" // Corresponds to `app/(tabs)/index.jsx`
-      options={{
-        headerShown: true,
-        title: 'About',
-      }}
-    /> */}
+    
 
     </Drawer>
   );

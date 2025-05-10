@@ -4,14 +4,16 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
-  confirmPasswordReset,
-  signInWithCredential,
-  FacebookAuthProvider,
-  GoogleAuthProvider,
-  signInWithPopup,
   signOut,
   
 } from "@firebase/auth";
+import {
+  doc,
+  getDoc,
+  collection,
+  setDoc,
+
+} from "@firebase/firestore";
 
 import { db } from "./config";
 import { collection } from "@firebase/firestore";
@@ -51,4 +53,26 @@ async function login(email, password) {
 async function forgetPassword(email) {
   await sendPasswordResetEmail(auth, email);
 }
-export { register, login, forgetPassword ,logout};
+async function getUserById() {
+  const user = auth.currentUser;
+  if (!user) {
+    console.error("No user logged in.");
+    return null;
+  }
+
+  const docRef = doc(db, "users", user.uid);
+  try {
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      // console.log("User data:", docSnap.data());
+      return docSnap.data();
+    } else {
+      console.log("No such document!");
+      return null;
+    }
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+    return null;
+  }
+}
+export { register, login, forgetPassword , getUserById, logout};

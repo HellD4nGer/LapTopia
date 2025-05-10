@@ -38,7 +38,7 @@ const Login = () => {
       
 
   return (
-    <ScrollView style={{backgroundColor: 'rgb(25, 25, 26)'}} >
+    <ScrollView style={{backgroundColor: 'rgb(255, 255, 255)'}} >
       <View style={styles.container}>
         <Image source={logo} style={styles.image} />
  
@@ -60,7 +60,7 @@ const Login = () => {
         />
 
         <Pressable style={styles.button} onPress={handleLogin}>
-          <Text style={styles.buttonText}>Log In</Text>
+          <Text style={styles.buttonText}>LOGIN</Text>
         </Pressable>
 
         <Pressable
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     bottom: hp(20),
   },
   input: {
-    backgroundColor: 'rgb(255, 255, 255)',
+    backgroundColor: 'rgba(207, 207, 207, 0.35)',
     width: "100%",
     height: 40,
     marginVertical: 10,
@@ -100,23 +100,28 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "green",
-    width: "24%",
+    width: "35%",
     alignItems: "center",
     height: "6.5%",
     justifyContent: "center",
-    marginTop: 15,
-    borderRadius: 5,
+    borderRadius: 25,
+    margin:25,
   },
   buttonText: {
     color: "white",
     fontSize: 20,
+    fontWeight:'bold',
+  
   },
   link: {
     marginTop: 20,
+    
   },
   linkText: {
-    color: 'rgb(228, 253, 0)',
+    color: 'rgb(78, 241, 220)',
     textDecorationLine: "underline",
+    fontWeight:'bold',
+    fontSize: 20,
   },
   error: {
     color: "red",
@@ -125,7 +130,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   image: {
-    width: wp(100),
+    width: wp(110),
     height: hp(60),
     resizeMode: "contain",
     justifyContent: "flex-start",

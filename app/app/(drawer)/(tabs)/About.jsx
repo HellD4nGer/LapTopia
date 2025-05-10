@@ -1,6 +1,9 @@
-import { StyleSheet, Text, ScrollView, View, ImageBackground} from 'react-native';
-
-
+import { StyleSheet, Text, ScrollView, View, ImageBackground, Image} from 'react-native';
+import logo from "../../../assets/images/logo5.png";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 export default function About(){
 
   return (
@@ -43,7 +46,7 @@ export default function About(){
         This is An E-commerce App Store{'\n'} for Laptops Called {'\n'}"LapTopia"
         </Text>
 
-      <Text style={{textAlign:'center', color:'rgb(255, 255, 255)'}}>
+      <Text style={{textAlign:'center', color:'rgb(250, 0, 0)'}}>
         Your Ultimate Destination for Laptops
       </Text>
 
@@ -54,6 +57,10 @@ export default function About(){
       loves to stay connected on the go, LapTopia has
       the perfect laptop{'\n'} to meet your {'\n'}Needs.
       </Text>
+      <Image source={logo} style={styles.image} />
+       <Text style={{textAlign:'center', color:'rgb(0, 0, 0)', fontSize:20, fontWeight:'bold', padding:30,}}>
+        © 2025 LapTopia Team. All rights reserved.
+      </Text>
       </View>
     </ScrollView>
   );
@@ -63,7 +70,7 @@ export default function About(){
 
 const styles = StyleSheet.create({
   contentContainer: {
-    backgroundColor: 'rgb(0, 177, 253)',
+    backgroundColor: 'rgb(255, 255, 255)',
   },
   container: {
     //this makes the scrollview works with or without  flex: 1,
@@ -110,5 +117,9 @@ const styles = StyleSheet.create({
     color:'black',
     fontWeight: 'bold',
     margin:15,
+  },
+  image:{
+    width: wp('100%'),
+    height: hp('20%'),
   },
 });

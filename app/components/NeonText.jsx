@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const NeonText = ({ children, color = 'rgb(0, 255, 34)', shadowColor = 'rgb(0, 0, 0)', }) => {
+const NeonText = ({ children, color = 'rgb(73, 243, 95)', shadowColor = 'rgb(0, 0, 0)', }) => {
   return (
     <View style={styles.container}>
       <Text

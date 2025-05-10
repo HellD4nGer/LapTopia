@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
 
   },
   productItem: {
-    backgroundColor:'rgba(0, 255, 221, 0.38)', 
+    backgroundColor:'rgba(207, 207, 207, 0.35)', //rgba(207, 207, 207, 0.38)
     borderRadius: 15,
     padding: 10,
   },

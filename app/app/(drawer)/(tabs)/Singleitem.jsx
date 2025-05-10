@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
 import { FontAwesome } from '@expo/vector-icons';
@@ -8,6 +8,8 @@ import lab2 from '../../../assets/images/lab2.png';
 import lab3 from '../../../assets/images/lab3.png';
 import lab4 from '../../../assets/images/lab4.png';
 import lab5 from '../../../assets/images/lab5.png';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
 
 const imageMap = {
   lab1,
@@ -95,7 +97,7 @@ export default function Single_item() {
       )}
 
       <TouchableOpacity style={styles.addToCartButton}>
-        <FontAwesome name="shopping-cart" size={20} color="#FFF" style={styles.cartIcon} />
+        <FontAwesome name="shopping-cart" size={20} color="rgb(0, 0, 0)" style={styles.cartIcon} />
         <Text style={styles.addToCartText}>Add to Cart</Text>
       </TouchableOpacity>
     </ScrollView>
@@ -105,7 +107,7 @@ export default function Single_item() {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    backgroundColor: '#FBFBFB',
+    backgroundColor: 'rgb(255, 255, 255)',
     alignItems: 'center',
     minHeight: '100%',
   },
@@ -114,15 +116,15 @@ const styles = StyleSheet.create({
     height: 250,
     borderRadius: 10,
     borderWidth: 0.6,
-    borderColor: '#3B1E54',
+    borderColor: 'rgb(0, 0, 0)',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
     marginTop: 20,
   },
   productImage: {
-    width: 200,
-    height: 200,
+   width: wp('60%'),
+    height: hp('30%'),
     borderRadius: 15,
   },
   name: {
@@ -150,13 +152,13 @@ const styles = StyleSheet.create({
   },
   ratingText: {
     fontSize: 18,
-    color: '#555',
+    color: 'rgb(0, 0, 0)',
     marginLeft: 8,
   },
   price: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#3B1E54',
+    color: 'rgb(0, 0, 0)',
   },
   tabsContainer: {
     flexDirection: 'row',
@@ -207,7 +209,7 @@ const styles = StyleSheet.create({
   },
   addToCartButton: {
     flexDirection: 'row',
-    backgroundColor: '#804FB3',
+    backgroundColor:'rgba(0, 255, 221, 0.38)',
     borderRadius: 30,
     paddingVertical: 15,
     paddingHorizontal: 40,
@@ -217,7 +219,7 @@ const styles = StyleSheet.create({
   },
   addToCartText: {
     fontSize: 20,
-    color: '#FFF',
+    Color:'rgba(6, 8, 8, 0.38)',
     marginLeft: 10,
     fontWeight: 'bold',
   },

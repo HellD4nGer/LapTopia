@@ -5,7 +5,6 @@ import productsData from '../../../products.json';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import LottieView from 'lottie-react-native';
-import {UploadProducts} from '../../../firebase/products'
 
 
 const SearchProducts = () => {
@@ -105,12 +104,13 @@ const SearchProducts = () => {
 const styles = StyleSheet.create({
   container: {
     flex:1,
-    backgroundColor: 'rgb(0, 177, 253)', //old color 'rgb(0, 177, 253)',
+    backgroundColor: 'rgb(255, 255, 255)', //old color 'rgb(0, 177, 253)',
   },
   searchBar: {
     flexDirection:'row',
     justifyContent:'flex-start',
     alignItems:'center',
+    padding:10,
   },
   searchIcon: {
     marginBottom:5,
@@ -123,10 +123,8 @@ const styles = StyleSheet.create({
     paddingLeft: 19,
     marginTop:10,
     marginBottom: 10,
-    backgroundColor:'rgb(255, 255, 255)',
+    backgroundColor:'rgba(0, 255, 221, 0.38)', 
     borderRadius:50,
-    // borderWidth:1,
-    // borderColor:'rgb(255, 0, 0)',
   },
   // message: {
   //   textAlign: 'center',

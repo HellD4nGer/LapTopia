@@ -47,13 +47,14 @@ const styles = StyleSheet.create({
     
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'rgb(250, 210, 31)', //old color rgb(16, 151, 241)
+    backgroundColor:'rgba(0, 255, 221, 0.25)', //old color rgb(16, 151, 241)
     borderRadius: 50,
-    margin:7,
+    margin:10,
+    padding:10,
   },
   image: {
-    width: wp('90%'), 
-    height: hp('38%'), 
+    width: wp('80%'), 
+    height: hp('30%'), 
     
   },
   paginationContainer: {

@@ -26,7 +26,7 @@ const Signup = () => {
  
 
   return (
-    <ScrollView style={{backgroundColor: 'rgb(25, 25, 26)'}} >
+    <ScrollView style={{backgroundColor: 'rgb(255, 255, 255)',}} >
     <View style={styles.container}>
       <Image source={logo} style={styles.image} />
   
@@ -36,11 +36,11 @@ const Signup = () => {
       <TextInput placeholder='Password' style={styles.input}  value={password} onChangeText={setPassword}  secureTextEntry/>
 
       <Pressable style={styles.button} onPress={handleSignUp}  >
-        <Text style={styles.buttonText}>Sign Up</Text>
+        <Text style={styles.buttonText}>REGISTER</Text>
       </Pressable>
 
       <Pressable style={styles.link} onPress={() => router.replace('./login')}>
-        <Text style={styles.linkText}>SignIn</Text>
+        <Text style={styles.linkText}>LOGIN</Text>
       </Pressable>
   
 
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     bottom: hp(8),
   },
   input: {
-    backgroundColor:'rgb(255, 255, 255)',
+    backgroundColor:'rgba(207, 207, 207, 0.35)',
     width: "100%",
     height: 40,
     marginVertical: 10,
@@ -68,13 +68,12 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "green",
-    width: "25%",
+    width: "45%",
     alignItems: "center",
     height: "7.5%",
     justifyContent: "center",
     marginTop: 15,
-    marginBottom: 10,
-    borderRadius: 5,
+    borderRadius: 25,
   },
   buttonText: {
     color: "white",
@@ -84,8 +83,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   linkText: {
-    color: 'rgb(228, 253, 0)',
+    color: 'rgb(78, 241, 220)',
     textDecorationLine: "underline",
+    fontWeight:'bold',
+    fontSize: 20,
   },
   error: {
     fontSize: 14,

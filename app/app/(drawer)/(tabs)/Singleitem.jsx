@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
 import { FontAwesome } from '@expo/vector-icons';
-import productsData from '../../../products.json';
+import { getProductById } from '../../../firebase/products';
 import lab1 from '../../../assets/images/lab1.png';
 import lab2 from '../../../assets/images/lab2.png';
 import lab3 from '../../../assets/images/lab3.png';
@@ -17,13 +17,55 @@ const imageMap = {
   lab5,
 };
 
-export default function Single_item() {
+export default function SingleItem() {
   const { id } = useLocalSearchParams();
-  const product = productsData.find(item => item.id === id);
-  const [rating, setRating] = useState(4.2);
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('details');
   const [selectedRating, setSelectedRating] = useState(0);
 
+  
+  useEffect(() => {
+    const fetchProductData = async () => {
+      try {
+        const data = await getProductById(id);
+        if (data) {
+          setProduct(data);
+        }
+      } catch (error) {
+        console.error("Error fetching product:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProductData();
+  }, [id]);
+
+  
+  const handleRatingSelection = (ratingValue) => {
+    setSelectedRating(ratingValue);
+  };
+
+  
+  let ratingMessage = 'Select a rating';
+  if (selectedRating > 0) {
+    ratingMessage = `You selected ${selectedRating} star`;
+    if (selectedRating > 1) {
+      ratingMessage += 's';
+    }
+  }
+
+  
+  if (loading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <Text style={styles.loadingText}>Loading...</Text>
+      </View>
+    );
+  }
+
+  
   if (!product) {
     return (
       <View style={styles.errorContainer}>
@@ -32,30 +74,32 @@ export default function Single_item() {
     );
   }
 
-  const handleRatingSelect = (star) => {
-    setSelectedRating(star);
-  };
-
+  
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.name}>{product.name}</Text>
-      <View style={styles.frameWithTitle}>
-        <Image source={imageMap[product.image]} style={styles.productImage} />
+
+      
+      <View style={styles.imageContainer}>
+        <Image source={imageMap[product.image] || lab1} style={styles.productImage} />
       </View>
 
+      
       <Text style={styles.availability}>Available</Text>
 
+      
       <View style={styles.ratingPriceContainer}>
         <View style={styles.ratingContainer}>
           {[1, 2, 3, 4, 5].map((star) => (
             <FontAwesome
               key={star}
-              name={star <= Math.floor(rating) ? 'star' : 'star-o'}
+              name={star <= selectedRating ? 'star' : 'star-o'}
               size={20}
-              color={star <= Math.ceil(rating) ? '#FFA500' : '#CCCCCC'}
+              color={star <= selectedRating ? '#FFA500' : '#CCCCCC'}
+              onPress={() => handleRatingSelection(star)}
             />
           ))}
-          <Text style={styles.ratingText}>{rating.toFixed(1)}</Text>
+          <Text style={styles.ratingText}>{selectedRating > 0 ? selectedRating : 'No Rating'}</Text>
         </View>
         <Text style={styles.price}>EGP {product.price || 15000}</Text>
       </View>
@@ -70,7 +114,7 @@ export default function Single_item() {
         </TouchableOpacity>
       </View>
 
-     
+      
       {activeTab === 'details' ? (
         <Text style={styles.detailsText}>{product.description}</Text>
       ) : (
@@ -78,7 +122,7 @@ export default function Single_item() {
           <Text style={styles.reviewTitle}>Rate this Product</Text>
           <View style={styles.starsContainer}>
             {[1, 2, 3, 4, 5].map((star) => (
-              <TouchableOpacity key={star} onPress={() => handleRatingSelect(star)}>
+              <TouchableOpacity key={star} onPress={() => handleRatingSelection(star)}>
                 <FontAwesome
                   name={star <= selectedRating ? 'star' : 'star-o'}
                   size={40}
@@ -88,12 +132,11 @@ export default function Single_item() {
               </TouchableOpacity>
             ))}
           </View>
-          <Text style={styles.selectedRatingText}>
-            {selectedRating > 0 ? `You selected ${selectedRating} star${selectedRating > 1 ? 's' : ''}` : 'Select a rating'}
-          </Text>
+          <Text style={styles.selectedRatingText}>{ratingMessage}</Text>
         </View>
       )}
 
+      
       <TouchableOpacity style={styles.addToCartButton}>
         <FontAwesome name="shopping-cart" size={20} color="#FFF" style={styles.cartIcon} />
         <Text style={styles.addToCartText}>Add to Cart</Text>
@@ -109,7 +152,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     minHeight: '100%',
   },
-  frameWithTitle: {
+  imageContainer: {
     width: 250,
     height: 250,
     borderRadius: 10,

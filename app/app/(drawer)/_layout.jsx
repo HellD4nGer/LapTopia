@@ -180,6 +180,13 @@ useEffect(() => {
         title: 'Login',
       }}
     />
+       <Drawer.Screen
+      name="signup"
+      options={{
+        headerShown: true,
+        title: 'REGISTER',
+      }}
+    />
     
 
     </Drawer>

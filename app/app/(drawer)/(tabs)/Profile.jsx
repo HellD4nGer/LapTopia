@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
+import UserProfile from '../../../components/userProfile';
 
-export default function profile() {
+export default function Profile() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>profile</Text>
+      <UserProfile/>
     </View>
   )
 }

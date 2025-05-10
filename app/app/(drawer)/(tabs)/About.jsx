@@ -1,11 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, ScrollView, View} from 'react-native';
-
-
+import { StyleSheet, Text, ScrollView, View, ImageBackground, Image} from 'react-native';
+import logo from "../../../assets/images/logo5.png";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 export default function About(){
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <ScrollView contentContainerStyle={styles.contentContainer}>
+
+      <View style={styles.container}>
 
       <Text style={styles.title}>Team Members :</Text>
       <View style={styles.row}>
@@ -39,22 +43,25 @@ export default function About(){
       <Text style={styles.title}>Description :</Text>
 
       <Text style={styles.subTitle}>
-        This is An E-commerce App Store for Laptops Called {'\n'}"LapTopia"
+        This is An E-commerce App Store{'\n'} for Laptops Called {'\n'}"LapTopia"
         </Text>
 
-      <Text style={{textAlign:'center', color:'#BED754'}}>
+      <Text style={{textAlign:'center', color:'rgb(250, 0, 0)'}}>
         Your Ultimate Destination for Laptops
       </Text>
 
       <Text style={styles.desc}>
-      Welcome to LapTopia, your one-stop-shop for the latest
-      and greatest in laptop technology. Whether you're
+      Welcome to LapTopia, your{'\n'} one-stop shop for the latest{'\n'}
+      and greatest in laptop Techs.{'\n'} Whether you're
       a student, a professional, a gamer, or someone who
       loves to stay connected on the go, LapTopia has
-      the perfect laptop to meet your needs.
+      the perfect laptop{'\n'} to meet your {'\n'}Needs.
       </Text>
-
-      <StatusBar style='auto'></StatusBar>
+      <Image source={logo} style={styles.image} />
+       <Text style={{textAlign:'center', color:'rgb(0, 0, 0)', fontSize:20, fontWeight:'bold', padding:30,}}>
+        © 2025 LapTopia Team. All rights reserved.
+      </Text>
+      </View>
     </ScrollView>
   );
 };
@@ -62,47 +69,57 @@ export default function About(){
 
 
 const styles = StyleSheet.create({
+  contentContainer: {
+    backgroundColor: 'rgb(255, 255, 255)',
+  },
   container: {
-    flex: 1,
-    backgroundColor: '#191919',
+    //this makes the scrollview works with or without  flex: 1,
   },
   title: {
     fontSize: 30,
     fontWeight: 'bold',
     textAlign:'center',
-    color:'#408EC6'
+    color:'rgb(128, 0, 255)',
+    margin:10,
   },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    
+    margin:7,
   },
   name: {
     fontFamily: 'Courier', 
     fontSize: 25,
     lineHeight: 30,
     fontWeight: 'bold',
-    color:'#BED754'
+    color:'black',
+    
   },
   number: {
     fontFamily: 'Courier', 
     fontSize: 25,
     lineHeight: 30,
     fontWeight: 'bold',
-    color:'#BED754'
+    color:'black'
   },
   subTitle: {
     fontSize: 16,
     fontWeight: 'bold',
     textAlign:'center',
-    color:'#FF6500'
+    color:'rgb(0, 4, 255)',
+    padding:7,
   },
   desc: {
-    fontSize: 16,
-    justifyContent:'center',
+    fontSize: 20,
     padding:10,
     textAlign:'center',
-    color:'#BED754'
+    color:'black',
+    fontWeight: 'bold',
+    margin:15,
+  },
+  image:{
+    width: wp('100%'),
+    height: hp('20%'),
   },
 });
